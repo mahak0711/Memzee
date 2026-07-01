@@ -1,6 +1,6 @@
 import AmbientBackground from "./AmbientBackground";
-// import HeroInput from "./HeroInput";
-
+import LivingBrain from "./LivingBrain";
+import HeroInput from "./HeroInput";
 export default function Hero() {
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
@@ -24,8 +24,8 @@ export default function Hero() {
         <p className="mt-8 max-w-2xl text-lg text-zinc-400">
           Capture a thought and watch your memory become connected.
         </p>
-
-        {/* <HeroInput /> */}
+        <LivingBrain />
+        <HeroInput />
 
       </div>
 
