@@ -1,28 +1,59 @@
 import {
-    Brain,
-    LayoutDashboard,
-    Search,
-    Settings,
+  Brain,
+  LayoutDashboard,
+  Search,
+  Settings,
+  Network
 } from "lucide-react";
 
 export default function Sidebar() {
-    return (
-        <aside className="w-20 border-r border-white/10 bg-white/[0.03] backdrop-blur-xl">
-            <div className="flex h-full flex-col items-center justify-between py-6">
-                <div className="flex flex-col items-center gap-8">
+  return (
+    // 1. Narrower, darker rail that anchors the app
+    <aside className="relative z-20 flex h-full w-[68px] flex-col items-center border-r border-white/10 bg-[#050505]/95 py-5 shadow-2xl backdrop-blur-xl">
+      
+      {/* 2. Logo / App Icon */}
+      <div className="mb-6 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-indigo-500 shadow-lg shadow-cyan-500/20">
+        <Brain size={20} className="text-white" />
+      </div>
 
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500 to-indigo-500">
-                        <Brain size={22} />
-                    </div>
+      {/* 3. Top Navigation Group */}
+      <nav className="flex w-full flex-col items-center gap-2">
+        
+        {/* ACTIVE ITEM */}
+        <button className="group relative flex h-11 w-11 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-400 transition-all hover:bg-cyan-500/20">
+          {/* Active indicator bar */}
+          <div className="absolute left-0 h-5 w-1 rounded-r-full bg-cyan-400" />
+          <LayoutDashboard size={20} strokeWidth={2} />
+        </button>
 
-                    <LayoutDashboard className="text-cyan-400" />
+        {/* INACTIVE ITEMS */}
+        <button className="group flex h-11 w-11 items-center justify-center rounded-xl text-zinc-500 transition-all hover:bg-white/10 hover:text-zinc-200">
+          <Search size={20} strokeWidth={2} />
+        </button>
 
-                    <Search className="text-zinc-500 hover:text-white transition-colors" />
+        {/* Added a network icon as it fits the "Graph/Node" tool vibe */}
+        <button className="group flex h-11 w-11 items-center justify-center rounded-xl text-zinc-500 transition-all hover:bg-white/10 hover:text-zinc-200">
+          <Network size={20} strokeWidth={2} />
+        </button>
 
-                </div>
-                <Settings className="text-zinc-500" />
+      </nav>
 
-            </div>
-        </aside>
-    );
+      {/* 4. Bottom Navigation Group */}
+      <div className="mt-auto flex w-full flex-col items-center gap-3">
+        <button className="group flex h-11 w-11 items-center justify-center rounded-xl text-zinc-500 transition-all hover:bg-white/10 hover:text-zinc-200">
+          <Settings size={20} strokeWidth={2} />
+        </button>
+        
+        <hr className="w-8 border-white/10" />
+
+        {/* User Profile / Avatar Placeholder */}
+        <button className="h-8 w-8 overflow-hidden rounded-full border border-white/20 transition-all hover:border-white/40">
+          <div className="flex h-full w-full items-center justify-center bg-zinc-800 text-xs font-bold text-zinc-400">
+            M
+          </div>
+        </button>
+      </div>
+      
+    </aside>
+  );
 }

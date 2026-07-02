@@ -1,52 +1,107 @@
-const memories = [
-  {
-    title: "OpenAI Interview",
-    tag: "Career",
-    date: "Today",
-  },
-  {
-    title: "Semantic Chunking",
-    tag: "AI",
-    date: "Yesterday",
-  },
-  {
-    title: "Redis Middleware",
-    tag: "Backend",
-    date: "Last Week",
-  },
-];
+"use client";
+
+import { motion } from "motion/react";
+import { Clock3, History } from "lucide-react";
+import { useMemoryStore } from "@/lib/store/memory";
 
 export default function Timeline() {
+  const memories = useMemoryStore((s) => s.memories);
+  const selected = useMemoryStore((s) => s.selectedMemory);
+  const select = useMemoryStore((s) => s.selectMemory);
+
   return (
-    <aside className="border-r border-white/10 p-6 overflow-y-auto">
+    <div className="flex h-full w-full flex-col">
+      
+      {/* 1. PINNED HEADER (Matches Inspector) */}
+      <header className="flex-none flex items-center justify-between border-b border-white/10 bg-[#09090B]/40 px-5 py-4">
+        <h2 className="font-display text-xs font-semibold uppercase tracking-widest text-zinc-500">
+          Activity Log
+        </h2>
+        <History size={14} className="text-zinc-500" />
+      </header>
 
-      <h2 className="font-display text-2xl font-semibold">
-        Timeline
-      </h2>
+      {/* 2. SCROLLABLE CONTENT */}
+      <div className="relative flex-1 overflow-y-auto p-4">
+        
+        {/* Continuous Timeline Track */}
+        {memories.length > 0 && (
+          <div className="absolute bottom-4 left-[27px] top-4 w-px bg-gradient-to-b from-white/10 via-white/5 to-transparent" />
+        )}
 
-      <div className="mt-8 space-y-4">
-
-        {memories.map((memory) => (
-          <div
-            key={memory.title}
-            className="glass rounded-2xl p-5"
-          >
-            <p className="font-medium">
-              {memory.title}
-            </p>
-
-            <div className="mt-3 flex justify-between text-xs text-zinc-500">
-
-              <span>{memory.tag}</span>
-
-              <span>{memory.date}</span>
-
+        {/* 3. EMPTY STATE */}
+        {memories.length === 0 ? (
+          <div className="flex h-full flex-col items-center justify-center p-4 text-center">
+            <div className="mb-4 rounded-full bg-white/5 p-3 ring-1 ring-white/10">
+              <Clock3 className="h-5 w-5 text-zinc-500" />
             </div>
+            <p className="text-sm font-medium text-zinc-300">No activity yet</p>
+            <p className="mt-1 text-xs text-zinc-500">
+              Captured memories will appear here.
+            </p>
           </div>
-        ))}
+        ) : (
+          
+          /* 4. TIMELINE LIST */
+          <div className="flex flex-col gap-3">
+            {memories.map((memory, index) => {
+              const isSelected = selected?.id === memory.id;
+              
+              return (
+                <div key={memory.id} className="relative pl-8 pr-1">
+                  
+                  {/* Node Dot */}
+                  <div 
+                    className={`absolute left-[7px] top-[22px] h-2 w-2 -translate-x-1/2 rounded-full ring-4 ring-[#0A0A0C] transition-colors duration-300 ${
+                      isSelected 
+                        ? "bg-cyan-400 shadow-[0_0_10px_#22d3ee]" 
+                        : "bg-zinc-600"
+                    }`} 
+                  />
 
+                  {/* Interactive Card */}
+                  <motion.button
+                    whileHover={{ scale: 1.01 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => select(memory)}
+                    className={`w-full flex flex-col items-start rounded-xl border p-3.5 text-left transition-all duration-200 ${
+                      isSelected
+                        ? "border-cyan-500/30 bg-cyan-500/10 shadow-lg shadow-cyan-900/10"
+                        : "border-white/5 bg-white/5 hover:border-white/15 hover:bg-white/10"
+                    }`}
+                  >
+                    
+                    {/* Card Header */}
+                    <div className="flex w-full items-center justify-between">
+                      <p className={`font-mono text-[10px] uppercase tracking-wider ${isSelected ? 'text-cyan-400' : 'text-zinc-500'}`}>
+                        {index === 0 ? "Latest" : "History"}
+                      </p>
+                      <div className="flex items-center gap-1.5 text-[10px] text-zinc-500">
+                        <Clock3 size={11} />
+                        {memory.createdAt}
+                      </div>
+                    </div>
+
+                    {/* Card Body */}
+                    <h3 className="mt-1.5 text-sm font-medium text-zinc-100 line-clamp-1">
+                      {memory.title}
+                    </h3>
+
+                    {/* Tag / Meta */}
+                    {memory.tag && (
+                      <div className="mt-2.5">
+                        <span className="rounded-md border border-white/10 bg-black/20 px-2 py-0.5 text-[10px] font-medium text-zinc-400">
+                          {memory.tag}
+                        </span>
+                      </div>
+                    )}
+                    
+                  </motion.button>
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
-
-    </aside>
+    </div>
   );
 }
