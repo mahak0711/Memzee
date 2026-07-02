@@ -12,3 +12,11 @@ class RememberResponse(BaseModel):
 
 class RecallRequest(BaseModel):
     query: str
+
+
+class RecallResponse(BaseModel):
+    answer: str
+    kind: str
+    search_type: str
+    dataset: str
+    source: str

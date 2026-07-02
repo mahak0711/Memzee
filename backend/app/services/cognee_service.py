@@ -33,9 +33,27 @@ class CogneeService:
 
         results = await cognee.recall(
             query_text=query,
+            datasets=[settings.MEMZEE_DATASET],
         )
 
-        return results
+        if not results:
+            return {
+                "answer": "I couldn't find anything related to that.",
+                "kind": "",
+                "search_type": "",
+                "dataset": settings.MEMZEE_DATASET,
+                "source": "",
+            }
+
+        result = results[0]
+
+        return {
+            "answer": result.text,
+            "kind": result.kind,
+            "search_type": result.search_type,
+            "dataset": result.dataset_name,
+            "source": result.source,
+        }
 
 
 cognee_service = CogneeService()
