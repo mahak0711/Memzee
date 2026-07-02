@@ -12,8 +12,3 @@ class RememberResponse(BaseModel):
 
 class RecallRequest(BaseModel):
     query: str
-
-
-class RecallResponse(BaseModel):
-    answer: str
-    sources: list = []

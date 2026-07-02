@@ -1,4 +1,4 @@
-import backend.app.services.cognee_service as cognee_service
+import cognee
 
 from app.config import settings
 
@@ -9,26 +9,33 @@ class CogneeService:
 
     async def connect(self):
         if not self.connected:
-            await cognee_service.serve(
+            await cognee.serve(
                 url=settings.COGNEE_SERVICE_URL,
                 api_key=settings.COGNEE_API_KEY,
             )
             self.connected = True
 
-    async def disconnect(self):
-        if self.connected:
-            await cognee_service.disconnect()
-            self.connected = False
-
     async def remember(self, content: str):
         await self.connect()
 
-        await cognee_service.remember(
+        await cognee.remember(
             content,
             dataset_name=settings.MEMZEE_DATASET,
         )
 
-        return True
+        return {
+            "success": True,
+            "message": "Memory stored successfully",
+        }
+
+    async def recall(self, query: str):
+        await self.connect()
+
+        results = await cognee.recall(
+            query_text=query,
+        )
+
+        return results
 
 
 cognee_service = CogneeService()
