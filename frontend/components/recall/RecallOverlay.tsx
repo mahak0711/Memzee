@@ -1,8 +1,20 @@
 "use client";
 
 import { useState } from "react";
-import { X, Sparkles } from "lucide-react";
-import { motion, AnimatePresence } from "motion/react";
+import {
+  CommandDialog,
+  CommandInput,
+  CommandList,
+  CommandEmpty,
+  CommandGroup,
+  CommandItem,
+} from "@/components/ui/command";
+
+import {
+  Brain,
+  Loader2,
+  Database,
+} from "lucide-react";
 
 import { useMemoryStore } from "@/lib/store/memory";
 import { recallMemory } from "@/lib/api";
@@ -22,114 +34,99 @@ export default function RecallOverlay() {
   const [query, setQuery] = useState("");
 
   const handleRecall = async () => {
-    if (!query.trim()) return;
+  if (!query.trim()) return;
 
-    setRecallLoading(true);
+  setRecallLoading(true);
 
-    try {
-      const result = await recallMemory(query);
+  try {
+    const result = await recallMemory(query);
 
-      setRecallResult({
-        query,
-        answer: result.answer,
-        source: result.source,
-        dataset: result.dataset,
-      });
-    } catch (err) {
-      console.error(err);
-      setRecallLoading(false);
-    }
-  };
+    console.log("🔥 API Result:", result);
 
-  return (
-    <AnimatePresence>
-      {recallOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xl"
-        >
-          <motion.div
-            initial={{ y: 40, scale: 0.96 }}
-            animate={{ y: 0, scale: 1 }}
-            exit={{ y: 20, scale: 0.98 }}
-            className="glass w-full max-w-3xl rounded-3xl p-8"
-          >
-            <div className="mb-8 flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <Sparkles className="text-cyan-400" />
-                <h2 className="font-display text-3xl">
-                  Recall Memory
-                </h2>
-              </div>
+    setRecallResult({
+      query,
+      answer: result.answer,
+      source: result.source,
+      dataset: result.dataset,
+    });
+console.log("🔥 API Result", result);
 
-              <button onClick={closeRecall}>
-                <X />
-              </button>
+    console.log("✅ Store updated");
+  } catch (err) {
+    console.error(err);
+  } finally {
+    setRecallLoading(false);
+  }
+};
+
+return (
+  <CommandDialog
+    open={recallOpen}
+    onOpenChange={(open) => {
+      if (!open) closeRecall();
+    }}
+    title="Recall Memory"
+    description="Ask Memzee about your memories"
+  >
+    <CommandInput
+      value={query}
+      onValueChange={setQuery}
+      placeholder="Ask Memzee anything..."
+      onKeyDown={(e) => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          void handleRecall();
+        }
+      }}
+    />
+
+    <div className="border-t border-border p-6">
+
+      {recallLoading && (
+        <div className="flex items-center gap-3 text-cyan-400">
+          <Loader2 className="h-4 w-4 animate-spin" />
+          Searching memories...
+        </div>
+      )}
+
+      {!recallLoading && !recallAnswer && (
+        <p className="text-sm text-muted-foreground">
+          Ask a question about your memories.
+        </p>
+      )}
+
+      {!recallLoading && recallAnswer && (
+        <div className="space-y-6">
+
+          <div className="flex items-center gap-2">
+            <Brain className="h-5 w-5 text-cyan-400" />
+            <h3 className="font-semibold">
+              Memory Recall
+            </h3>
+          </div>
+
+          <div className="rounded-xl border border-white/10 bg-white/5 p-5">
+            <p className="whitespace-pre-wrap leading-7">
+              {recallAnswer}
+            </p>
+          </div>
+
+          <div className="flex gap-6 text-sm text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <Database className="h-4 w-4" />
+              {recallDataset}
             </div>
 
-            <textarea
-              rows={3}
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="What did I learn about RAG?"
-              className="w-full resize-none rounded-2xl border border-white/10 bg-white/5 p-5 outline-none"
-            />
+            <div>
+              Source: {recallSource}
+            </div>
+          </div>
 
-            <button
-              onClick={() => void handleRecall()}
-              disabled={recallLoading}
-              className="mt-6 rounded-xl bg-cyan-500 px-6 py-3 text-black"
-            >
-              {recallLoading
-                ? "Searching..."
-                : "Recall"}
-            </button>
-
-            {recallAnswer && (
-              <div className="mt-10 space-y-6">
-
-                <div>
-                  <p className="font-mono text-xs uppercase text-cyan-400">
-                    Answer
-                  </p>
-
-                  <p className="mt-3 text-lg leading-8">
-                    {recallAnswer}
-                  </p>
-                </div>
-
-                <div className="grid grid-cols-2 gap-4">
-
-                  <div className="glass rounded-xl p-4">
-                    <p className="font-mono text-xs text-zinc-500">
-                      SOURCE
-                    </p>
-
-                    <p className="mt-2">
-                      {recallSource}
-                    </p>
-                  </div>
-
-                  <div className="glass rounded-xl p-4">
-                    <p className="font-mono text-xs text-zinc-500">
-                      DATASET
-                    </p>
-
-                    <p className="mt-2">
-                      {recallDataset}
-                    </p>
-                  </div>
-
-                </div>
-
-              </div>
-            )}
-
-          </motion.div>
-        </motion.div>
+        </div>
       )}
-    </AnimatePresence>
-  );
+
+    </div>
+
+  </CommandDialog>
+);
 }
