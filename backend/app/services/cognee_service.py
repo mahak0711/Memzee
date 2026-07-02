@@ -47,13 +47,21 @@ class CogneeService:
 
         result = results[0]
 
-        return {
-            "answer": result.text,
-            "kind": result.kind,
-            "search_type": result.search_type,
-            "dataset": result.dataset_name,
-            "source": result.source,
-        }
+        if isinstance(result, dict):
+            return {
+                "answer": result.get("text", ""),
+                "kind": result.get("kind", ""),
+                "search_type": result.get("search_type", ""),
+                "dataset": result.get("dataset_name", ""),
+                "source": result.get("source", ""),
+            }
 
+        return {
+            "answer": getattr(result, "text", ""),
+            "kind": getattr(result, "kind", ""),
+            "search_type": getattr(result, "search_type", ""),
+            "dataset": getattr(result, "dataset_name", ""),
+            "source": getattr(result, "source", ""),
+        }
 
 cognee_service = CogneeService()
