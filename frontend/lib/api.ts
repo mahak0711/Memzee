@@ -36,3 +36,23 @@ export async function recallMemory(query: string) {
 
   return response.json();
 }
+
+export async function getMemories() {
+  const response = await fetch(`${API_URL}/api/memory/list`);
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch memories");
+  }
+
+  return response.json();
+}
+
+export async function getMemoryGraph() {
+  const response = await fetch(`${API_URL}/api/memory/graph`);
+
+  if (!response.ok) {
+    throw new Error("Failed to load memory graph");
+  }
+
+  return response.json();
+}
