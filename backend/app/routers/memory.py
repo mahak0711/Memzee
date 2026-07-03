@@ -37,3 +37,11 @@ async def recall_memory(
     return await cognee_service.recall(
         request.query
     )
+
+@router.get("/list")
+async def list_memories():
+    return await cognee_service.list_memories()
+
+@router.get("/graph")
+async def graph():
+    return await cognee_service.graph()
