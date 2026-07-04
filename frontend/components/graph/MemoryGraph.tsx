@@ -14,7 +14,6 @@ import NodeDetails from "./NodeDetails";
 import MemoryNode from "./MemoryNode";
 import { getMemoryGraph } from "@/lib/api";
 import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
 import GraphToolbar from "./GraphToolbar";
 import { useRouter } from "next/navigation";
 import GitHubImport from "../github/GitHubImport";
@@ -83,7 +82,6 @@ export default function MemoryGraph() {
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
   const [loading, setLoading] = useState(true);
-  const searchParams = useSearchParams();
   const { setCenter, fitView } = useReactFlow();
   const [showImport, setShowImport] = useState(false);
 const router=useRouter();
@@ -133,7 +131,6 @@ const router=useRouter();
     }
   };
   useEffect(() => {
-    if (searchParams.get("latest") !== "true") return;
 
     if (nodes.length === 0) return;
 

@@ -22,7 +22,7 @@ export default function HeroInput() {
 
   const [step, setStep] = useState<
     "idle" | "extract" | "graph" | "save" | "done"
-  >("idle"); const addMemory = useMemoryStore((state) => state.addMemory);
+  >("idle"); 
 
   const handleSubmit = async () => {
     if (!value.trim() || loading) return;
