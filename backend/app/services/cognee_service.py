@@ -1,10 +1,9 @@
 import cognee
 from fastapi import HTTPException
-from app.services.entity_service import entity_service
 from app.config import settings
-
-from pprint import pprint
-
+from app.services.knowledge_extractor import knowledge_extractor
+from app.services.triple_service import triple_service
+from app.services.memory_service import memory_service
 class CogneeService:
     def __init__(self):
         self.connected = False
@@ -30,15 +29,19 @@ class CogneeService:
             content,
             dataset_name=settings.MEMZEE_DATASET,
             )
+            memory_service.add(content)
 
-            entities = entity_service.extract_entities(content)
-            entity_service.save(entities)
+            triples = await knowledge_extractor.extract(content)
+
+            print("Extracted Triples:")
+            print(triples)
+
+            triple_service.save(triples["triples"])
 
             return {
                 "success": True,
                 "message": "Memory stored successfully",
             }
-
         except Exception as e:
             print("Cognee remember failed:")
             print(repr(e))
@@ -96,115 +99,63 @@ class CogneeService:
         return []
 
     async def graph(self):
-        await self.connect()
-
-        queries = entity_service.load()
-        print(queries)
+        triples = triple_service.load()
 
         nodes = {}
-        edges = {}
-        edge_count = 0
-        queries = [
-            q for q in queries
-            if q not in {"My", "I", "Me"}
-        ]
+        edges = []
 
-        for query in queries:
-            try:
-                results = await cognee.search(
-                    query_text=query,
-                    query_type=cognee.SearchType.GRAPH_COMPLETION,
-                    datasets=[settings.MEMZEE_DATASET],
-                    verbose=True,
-                )
+        def node_id(name: str):
+            return name.lower().strip().replace(" ", "-")
 
-                if not results:
-                    continue
+        for index, triple in enumerate(triples):
+            subject = triple["subject"]["name"]
+            subject_type = triple["subject"]["type"]
 
-                result = results[0]
+            obj = triple["object"]["name"]
+            obj_type = triple["object"]["type"] 
+            relation = triple["relation"]
 
-                objects = (
-                    result.get("objects_result")
-                    if isinstance(result, dict)
-                    else getattr(result, "objects_result", None)
-                )
+            subject_id = node_id(subject)
+            object_id = node_id(obj)
 
-                if not objects:
-                    print(f"No graph returned for '{query}'")
-                    continue
+            if subject_id not in nodes:
+                nodes[subject_id] = {
+                    "id": subject_id,
+                    "title": subject,
+                    "category": subject_type,
+                }
 
-                for relation in objects:
+            if object_id not in nodes:
+                nodes[object_id] = {
+                    "id": object_id,
+                    "title": obj,
+                    "category": obj_type,
+                }
 
-                    for key in ["node1", "node2"]:
-
-                        node = relation[key]
-
-                        node_id = node["node_id"]
-
-                        if node_id not in nodes:
-
-                            attrs = node["node_attributes"]
-
-                            nodes[node_id] = {
-                                "id": node_id,
-                                "title": attrs.get("name")
-                                or attrs.get("text")
-                                or node_id,
-                                "category": attrs.get("type", "Unknown"),
-                            }
-
-                    edge_key = (
-                        relation["node1"]["node_id"],
-                        relation["node2"]["node_id"],
-                        relation["attributes"].get(
-                            "relationship_name",
-                            ""
-                        ),
-                    )
-
-                    if edge_key not in edges:
-
-                        edges[edge_key] = {
-                            "id": f"edge-{edge_count}",
-                            "source": relation["node1"]["node_id"],
-                            "target": relation["node2"]["node_id"],
-                            "relation": relation["attributes"].get(
-                                "relationship_name",
-                                "",
-                            ),
-                        }
-
-                        edge_count += 1
-
-            except Exception as e:
-                print(f"Search '{query}' failed:", e)
-            
-        IGNORE = {
-            "EntityType",
-            "DocumentChunk",
-            "TextSummary",
-            "TextDocument",
-        }
-
-        filtered_nodes = {
-            node["id"]: node
-            for node in nodes.values()
-            if node["category"] not in IGNORE
-        }
-
-        filtered_edges = [
-            edge
-            for edge in edges.values()
-            if edge["source"] in filtered_nodes
-            and edge["target"] in filtered_nodes
-        ]
+            edges.append({
+                "id": f"edge-{index}",
+                "source": subject_id,
+                "target": object_id,
+                "relation": relation,
+            })
 
         return {
-            "nodes": list(filtered_nodes.values()),
-            "edges": filtered_edges,
+            "nodes": list(nodes.values()),
+            "edges": edges,
         }
 
-        
 
+    async def forget(self, memory_id: str):
+        try:
+    # delete from Cognee
+
+    # delete locally
+
+            return {
+                "success": True
+            }
+
+        except Exception as e:
+            raise Exception(str(e))
  
 cognee_service = CogneeService()

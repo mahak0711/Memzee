@@ -20,3 +20,7 @@ class RecallResponse(BaseModel):
     search_type: str
     dataset: str
     source: str
+
+
+class GitHubImportRequest(BaseModel):
+    url: str

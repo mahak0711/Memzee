@@ -3,7 +3,18 @@ import os
 import re
 
 ENTITY_FILE = "entities.json"
-
+NORMALIZATION = {
+    "fastapi": "FastAPI",
+    "next.js": "Next.js",
+    "react": "React",
+    "typescript": "TypeScript",
+    "python": "Python",
+    "postgresql": "PostgreSQL",
+    "openai": "OpenAI",
+    "github": "GitHub",
+    "leetcode": "LeetCode",
+    "cognee cloud": "Cognee Cloud",
+}
 
 class EntityService:
     def __init__(self):
@@ -42,7 +53,17 @@ class EntityService:
 
             filtered.append(entity)
 
-        return sorted(filtered)
+        normalized = []
+
+        for entity in filtered:
+            key = entity.lower()
+
+            if key in NORMALIZATION:
+                normalized.append(NORMALIZATION[key])
+            else:
+                normalized.append(entity)
+
+        return sorted(set(normalized))
 
     def save(self, entities):
             with open(ENTITY_FILE, "r") as f:

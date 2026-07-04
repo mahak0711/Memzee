@@ -1,0 +1,794 @@
+[
+  {
+    "subject": {
+      "name": "Mahak Kankaria",
+      "type": "Person"
+    },
+    "relation": "is a",
+    "object": {
+      "name": "Software Engineer",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Mahak Kankaria",
+      "type": "Person"
+    },
+    "relation": "builds",
+    "object": {
+      "name": "Memzee",
+      "type": "Platform"
+    }
+  },
+  {
+    "subject": {
+      "name": "Memzee",
+      "type": "Platform"
+    },
+    "relation": "is a type of",
+    "object": {
+      "name": "AI memory platform",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Memzee",
+      "type": "Platform"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "FastAPI",
+      "type": "Framework"
+    }
+  },
+  {
+    "subject": {
+      "name": "Memzee",
+      "type": "Platform"
+    },
+    "relation": "has component",
+    "object": {
+      "name": "Frontend",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Frontend",
+      "type": "Concept"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "Next.js",
+      "type": "Framework"
+    }
+  },
+  {
+    "subject": {
+      "name": "Frontend",
+      "type": "Concept"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "React",
+      "type": "Library"
+    }
+  },
+  {
+    "subject": {
+      "name": "Frontend",
+      "type": "Concept"
+    },
+    "relation": "is written in",
+    "object": {
+      "name": "TypeScript",
+      "type": "Language"
+    }
+  },
+  {
+    "subject": {
+      "name": "Memzee",
+      "type": "Platform"
+    },
+    "relation": "stores data in",
+    "object": {
+      "name": "PostgreSQL",
+      "type": "Database"
+    }
+  },
+  {
+    "subject": {
+      "name": "Memzee",
+      "type": "Platform"
+    },
+    "relation": "is hosted on",
+    "object": {
+      "name": "Vercel",
+      "type": "Platform"
+    }
+  },
+  {
+    "subject": {
+      "name": "Memzee",
+      "type": "Platform"
+    },
+    "relation": "integrates with",
+    "object": {
+      "name": "Cognee Cloud",
+      "type": "Platform"
+    }
+  },
+  {
+    "subject": {
+      "name": "Memzee",
+      "type": "Platform"
+    },
+    "relation": "uses for",
+    "object": {
+      "name": "Semantic Memory",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Mahak Kankaria",
+      "type": "Person"
+    },
+    "relation": "enjoys",
+    "object": {
+      "name": "React",
+      "type": "Library"
+    }
+  },
+  {
+    "subject": {
+      "name": "Mahak Kankaria",
+      "type": "Person"
+    },
+    "relation": "enjoys",
+    "object": {
+      "name": "TypeScript",
+      "type": "Language"
+    }
+  },
+  {
+    "subject": {
+      "name": "Mahak Kankaria",
+      "type": "Person"
+    },
+    "relation": "has interview with",
+    "object": {
+      "name": "OpenAI",
+      "type": "Company"
+    }
+  },
+  {
+    "subject": {
+      "name": "Mahak Kankaria",
+      "type": "Person"
+    },
+    "relation": "contributes to",
+    "object": {
+      "name": "GitHub",
+      "type": "Platform"
+    }
+  },
+  {
+    "subject": {
+      "name": "Mahak Kankaria",
+      "type": "Person"
+    },
+    "relation": "solves problems on",
+    "object": {
+      "name": "LeetCode",
+      "type": "Platform"
+    }
+  },
+  {
+    "subject": {
+      "name": "Mahak Kankaria",
+      "type": "Person"
+    },
+    "relation": "participates in",
+    "object": {
+      "name": "Cognee Hackathon",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "name": "Mahak Kankaria",
+      "type": "Person"
+    },
+    "relation": "builds",
+    "object": {
+      "name": "Memzee",
+      "type": "Project"
+    }
+  },
+  {
+    "subject": {
+      "name": "Memzee",
+      "type": "Project"
+    },
+    "relation": "is a type of",
+    "object": {
+      "name": "AI memory platform",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Memzee",
+      "type": "Project"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "FastAPI",
+      "type": "Framework"
+    }
+  },
+  {
+    "subject": {
+      "name": "Memzee",
+      "type": "Project"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "Next.js",
+      "type": "Framework"
+    }
+  },
+  {
+    "subject": {
+      "name": "Memzee",
+      "type": "Project"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "React",
+      "type": "Library"
+    }
+  },
+  {
+    "subject": {
+      "name": "Memzee",
+      "type": "Project"
+    },
+    "relation": "uses language",
+    "object": {
+      "name": "TypeScript",
+      "type": "Language"
+    }
+  },
+  {
+    "subject": {
+      "name": "Memzee",
+      "type": "Project"
+    },
+    "relation": "stores data in",
+    "object": {
+      "name": "PostgreSQL",
+      "type": "Database"
+    }
+  },
+  {
+    "subject": {
+      "name": "Memzee",
+      "type": "Project"
+    },
+    "relation": "hosted on",
+    "object": {
+      "name": "Vercel",
+      "type": "Platform"
+    }
+  },
+  {
+    "subject": {
+      "name": "Memzee",
+      "type": "Project"
+    },
+    "relation": "integrates with",
+    "object": {
+      "name": "Cognee Cloud",
+      "type": "Platform"
+    }
+  },
+  {
+    "subject": {
+      "name": "GitGud",
+      "type": "Platform"
+    },
+    "relation": "is a",
+    "object": {
+      "name": "gamified onboarding platform",
+      "type": "Platform"
+    }
+  },
+  {
+    "subject": {
+      "name": "GitGud",
+      "type": "Platform"
+    },
+    "relation": "helps",
+    "object": {
+      "name": "junior developers",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "name": "junior developers",
+      "type": "Person"
+    },
+    "relation": "make",
+    "object": {
+      "name": "Open Source contribution",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "GitGud",
+      "type": "Platform"
+    },
+    "relation": "helps overcome",
+    "object": {
+      "name": "tutorial hell",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "GitGud",
+      "type": "Platform"
+    },
+    "relation": "aggregates",
+    "object": {
+      "name": "beginner-friendly issues",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "GitGud",
+      "type": "Platform"
+    },
+    "relation": "provides",
+    "object": {
+      "name": "AI-powered workspace",
+      "type": "Tool"
+    }
+  },
+  {
+    "subject": {
+      "name": "AI-powered workspace",
+      "type": "Tool"
+    },
+    "relation": "guides",
+    "object": {
+      "name": "junior developers",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "name": "GitGud",
+      "type": "Platform"
+    },
+    "relation": "has feature",
+    "object": {
+      "name": "Smart Feed",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Smart Feed",
+      "type": "Concept"
+    },
+    "relation": "fetches",
+    "object": {
+      "name": "Good First Issues",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Smart Feed",
+      "type": "Concept"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "GitHub API",
+      "type": "API"
+    }
+  },
+  {
+    "subject": {
+      "name": "GitGud",
+      "type": "Platform"
+    },
+    "relation": "has feature",
+    "object": {
+      "name": "Dynamic Filtering",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Dynamic Filtering",
+      "type": "Concept"
+    },
+    "relation": "filters by",
+    "object": {
+      "name": "tech stack",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "tech stack",
+      "type": "Concept"
+    },
+    "relation": "includes",
+    "object": {
+      "name": "JavaScript",
+      "type": "Language"
+    }
+  },
+  {
+    "subject": {
+      "name": "tech stack",
+      "type": "Concept"
+    },
+    "relation": "includes",
+    "object": {
+      "name": "Python",
+      "type": "Language"
+    }
+  },
+  {
+    "subject": {
+      "name": "tech stack",
+      "type": "Concept"
+    },
+    "relation": "includes",
+    "object": {
+      "name": "TypeScript",
+      "type": "Language"
+    }
+  },
+  {
+    "subject": {
+      "name": "GitGud",
+      "type": "Platform"
+    },
+    "relation": "has feature",
+    "object": {
+      "name": "In-Browser Workspace",
+      "type": "Tool"
+    }
+  },
+  {
+    "subject": {
+      "name": "In-Browser Workspace",
+      "type": "Tool"
+    },
+    "relation": "is a type of",
+    "object": {
+      "name": "VS Code-like environment",
+      "type": "Tool"
+    }
+  },
+  {
+    "subject": {
+      "name": "In-Browser Workspace",
+      "type": "Tool"
+    },
+    "relation": "helps fix",
+    "object": {
+      "name": "bugs",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "GitGud",
+      "type": "Platform"
+    },
+    "relation": "has feature",
+    "object": {
+      "name": "AI Mentor",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "AI Mentor",
+      "type": "Concept"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "Gemini Pro",
+      "type": "Platform"
+    }
+  },
+  {
+    "subject": {
+      "name": "AI Mentor",
+      "type": "Concept"
+    },
+    "relation": "explains",
+    "object": {
+      "name": "code context",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "AI Mentor",
+      "type": "Concept"
+    },
+    "relation": "offers",
+    "object": {
+      "name": "hints",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "GitGud",
+      "type": "Platform"
+    },
+    "relation": "uses framework",
+    "object": {
+      "name": "Next.js 15",
+      "type": "Framework"
+    }
+  },
+  {
+    "subject": {
+      "name": "Next.js 15",
+      "type": "Framework"
+    },
+    "relation": "includes",
+    "object": {
+      "name": "App Router",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "GitGud",
+      "type": "Platform"
+    },
+    "relation": "uses language",
+    "object": {
+      "name": "TypeScript",
+      "type": "Language"
+    }
+  },
+  {
+    "subject": {
+      "name": "GitGud",
+      "type": "Platform"
+    },
+    "relation": "uses styling framework",
+    "object": {
+      "name": "Tailwind CSS",
+      "type": "Framework"
+    }
+  },
+  {
+    "subject": {
+      "name": "GitGud",
+      "type": "Platform"
+    },
+    "relation": "uses auth provider",
+    "object": {
+      "name": "Clerk",
+      "type": "Platform"
+    }
+  },
+  {
+    "subject": {
+      "name": "Clerk",
+      "type": "Platform"
+    },
+    "relation": "supports",
+    "object": {
+      "name": "GitHub OAuth",
+      "type": "API"
+    }
+  },
+  {
+    "subject": {
+      "name": "GitGud",
+      "type": "Platform"
+    },
+    "relation": "uses AI API",
+    "object": {
+      "name": "Google Gemini API",
+      "type": "API"
+    }
+  },
+  {
+    "subject": {
+      "name": "Google Gemini API",
+      "type": "API"
+    },
+    "relation": "developed by",
+    "object": {
+      "name": "Google",
+      "type": "Company"
+    }
+  },
+  {
+    "subject": {
+      "name": "GitGud",
+      "type": "Platform"
+    },
+    "relation": "uses data API",
+    "object": {
+      "name": "GitHub REST API",
+      "type": "API"
+    }
+  },
+  {
+    "subject": {
+      "name": "GitHub REST API",
+      "type": "API"
+    },
+    "relation": "accessed via",
+    "object": {
+      "name": "Octokit",
+      "type": "Library"
+    }
+  },
+  {
+    "subject": {
+      "name": "GitGud",
+      "type": "Platform"
+    },
+    "relation": "is described as",
+    "object": {
+      "name": "Tinder for Open Source Contributions",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Memzee",
+      "type": "Platform"
+    },
+    "relation": "integrates with",
+    "object": {
+      "name": "GitHub",
+      "type": "Platform"
+    }
+  },
+  {
+    "subject": {
+      "name": "Memzee",
+      "type": "Platform"
+    },
+    "relation": "integrates with",
+    "object": {
+      "name": "Gmail",
+      "type": "Platform"
+    }
+  },
+  {
+    "subject": {
+      "name": "Memzee",
+      "type": "Platform"
+    },
+    "relation": "integrates with",
+    "object": {
+      "name": "Google Calendar",
+      "type": "Platform"
+    }
+  },
+  {
+    "subject": {
+      "name": "Memzee",
+      "type": "Platform"
+    },
+    "relation": "integrates with",
+    "object": {
+      "name": "Notion",
+      "type": "Platform"
+    }
+  },
+  {
+    "subject": {
+      "name": "Memzee",
+      "type": "Platform"
+    },
+    "relation": "can remember",
+    "object": {
+      "name": "repositories",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Memzee",
+      "type": "Platform"
+    },
+    "relation": "can remember",
+    "object": {
+      "name": "emails",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Memzee",
+      "type": "Platform"
+    },
+    "relation": "can remember",
+    "object": {
+      "name": "meetings",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Memzee",
+      "type": "Platform"
+    },
+    "relation": "can remember",
+    "object": {
+      "name": "notes",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "GitHub",
+      "type": "Platform"
+    },
+    "relation": "manages",
+    "object": {
+      "name": "repositories",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Gmail",
+      "type": "Platform"
+    },
+    "relation": "manages",
+    "object": {
+      "name": "emails",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Google Calendar",
+      "type": "Platform"
+    },
+    "relation": "manages",
+    "object": {
+      "name": "meetings",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Notion",
+      "type": "Platform"
+    },
+    "relation": "manages",
+    "object": {
+      "name": "notes",
+      "type": "Concept"
+    }
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "id": "72ab9b9c-06c6-4250-9290-c8360420ea36",
+    "content": "I want Memzee to integrate with GitHub, Gmail, Google Calendar, and Notion so it can remember repositories, emails, meetings, and notes automatically.",
+    "created_at": "2026-07-04T16:57:29.608621"
+  },
+  {
+    "id": "8144800b-d4c2-4354-92ad-91751c95c08f",
+    "content": "# GitGud \ud83d\ude80\n\n**The \"Tinder\" for Open Source Contributions.**\n\nGitGud is a gamified onboarding platform designed to help junior developers break out of \"tutorial hell\" and make their first real Open Source contribution. It aggregates beginner-friendly issues and provides an AI-powered workspace to guide them through the fix.\n\n## \ud83c\udf1f Features\n- **Smart Feed:** Curated \"Good First Issues\" fetched live from GitHub API.\n- **Dynamic Filtering:** Filter issues by tech stack (JavaScript, Python, TypeScript, etc.).\n- **In-Browser Workspace:** (In Progress) A VS Code-like environment to fix bugs without cloning.\n- **AI Mentor:** (In Progress) Gemini Pro integration to explain code context and offer hints.\n\n## \ud83d\udee0\ufe0f Tech Stack\n- **Framework:** Next.js 15 (App Router)\n- **Language:** TypeScript\n- **Styling:** Tailwind CSS\n- **Auth:** Clerk (GitHub OAuth)\n- **AI:** Google Gemini API\n- **Data:** GitHub REST API (Octokit)\n\n## \ud83d\ude80 Getting Started\n\nFirst, run the development server:\n\n```bash\nnpm run dev\n",
+    "created_at": "2026-07-04T13:19:00.177695"
+  },
+  {
+    "id": "51e34b50-eaeb-4ccb-8873-609b5c1684e7",
+    "content": "Mahak Kankaria is a Software Engineer building Memzee.\n\nMemzee is an AI memory platform.\n\nMemzee uses FastAPI for the backend.\n\nMemzee uses Next.js and React for the frontend.\n\nThe frontend is written in TypeScript.\n\nMemzee stores data in PostgreSQL.\n\nMemzee is hosted on Vercel.\n\nMemzee integrates with Cognee Cloud for semantic memory.\n\nMahak enjoys React and TypeScript.\n\nMahak has an OpenAI interview tomorrow at 2 PM.\n\nMahak contributes to GitHub regularly.\n\nMahak solves problems on LeetCode.\n\nMahak is participating in the Cognee Hackathon.",
+    "created_at": "2026-07-04T12:51:27.617425"
+  }
+]

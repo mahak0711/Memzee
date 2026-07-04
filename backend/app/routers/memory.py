@@ -1,14 +1,15 @@
 from fastapi import APIRouter
-
+from app.services.memory_service import memory_service
 from app.models.schemas import (
     RememberRequest,
     RememberResponse,
     RecallRequest,
     RecallResponse,
+    GitHubImportRequest,
 )
-
+from app.services.github_service import github_service
 from app.services.cognee_service import cognee_service
-
+from fastapi import HTTPException
 router = APIRouter(
     prefix="/api/memory",
     tags=["Memory"],
@@ -38,10 +39,28 @@ async def recall_memory(
         request.query
     )
 
-@router.get("/list")
-async def list_memories():
-    return await cognee_service.list_memories()
 
 @router.get("/graph")
 async def graph():
     return await cognee_service.graph()
+
+@router.get("/list")
+async def list_memories():
+    return memory_service.load()
+
+@router.post("/github")
+async def import_github(request: GitHubImportRequest):
+
+    readme = github_service.fetch_readme(request.url)
+
+    await cognee_service.remember(readme)
+
+    return {
+        "success": True,
+        "message": "Repository imported successfully."
+    }
+
+
+@router.delete("/forget/{memory_id}")
+async def forget_memory(memory_id: str):
+    return await cognee_service.forget(memory_id)
