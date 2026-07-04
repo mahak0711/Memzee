@@ -3,42 +3,68 @@
 import { Handle, Position } from "reactflow";
 import { Brain } from "lucide-react";
 
-export default function MemoryNode({ data }: any) {
+export default function MemoryNode({ data, selected }: any) {
   return (
-    <div className="min-w-[220px] rounded-2xl border border-cyan-500/20 bg-[#111827]/90 p-4 shadow-xl backdrop-blur">
-
+    <div
+      className={`
+min-w-[250px]
+rounded-2xl
+bg-[#111827]
+p-4
+transition-all
+duration-300
+hover:scale-[1.02]
+${selected ? "scale-105" : ""}
+`} 
+style={{
+  border: `2px solid ${data.color}`,
+  boxShadow: selected
+    ? `0 0 35px ${data.color}55`
+    : `0 0 12px ${data.color}22`,
+}}
+    >
       <Handle
         type="target"
         position={Position.Top}
-        className="!bg-cyan-400"
+        style={{ background: data.color }}
       />
 
       <div className="flex items-center gap-3">
-
-        <div className="rounded-full bg-cyan-500/10 p-2">
-          <Brain className="h-5 w-5 text-cyan-400" />
+        <div
+          className="rounded-full p-2"
+          style={{
+            backgroundColor: `${data.color}20`,
+          }}
+        >
+          <Brain
+            className="h-5 w-5"
+            style={{
+              color: data.color,
+            }}
+          />
         </div>
 
-        <div>
-          <h3 className="font-semibold text-white">
+        <div className="flex-1 overflow-hidden">
+          <h3 className="truncate text-sm font-semibold text-white">
             {data.title}
           </h3>
 
-          <p className="text-xs text-zinc-400">
+          <span
+            className="mt-1 inline-block rounded-full px-2 py-0.5 text-[10px] font-medium"
+            style={{
+              backgroundColor: `${data.color}20`,
+              color: data.color,
+            }}
+          >
             {data.type}
-          </p>
+          </span>
         </div>
-
       </div>
-
-      <p className="mt-4 text-sm leading-6 text-zinc-300">
-        {data.description}
-      </p>
 
       <Handle
         type="source"
         position={Position.Bottom}
-        className="!bg-cyan-400"
+        style={{ background: data.color }}
       />
     </div>
   );

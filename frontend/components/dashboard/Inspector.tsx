@@ -23,10 +23,29 @@ export default function Inspector() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
-          <p className="text-sm font-medium text-zinc-300">No node selected</p>
-          <p className="mt-1 text-xs text-zinc-500">
-            Click on a memory in the canvas to view its properties.
-          </p>
+         <div className="space-y-3 text-center">
+
+<h3 className="font-semibold text-zinc-200">
+Knowledge Explorer
+</h3>
+
+<p className="text-sm text-zinc-500">
+Select any node in the graph to inspect:
+</p>
+
+<ul className="space-y-2 text-left text-sm text-zinc-400">
+
+<li>• Relationships</li>
+
+<li>• Connected Technologies</li>
+
+<li>• AI Metadata</li>
+
+<li>• Memory Source</li>
+
+</ul>
+
+</div>
         </div>
       </div>
     );

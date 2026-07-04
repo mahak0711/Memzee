@@ -56,3 +56,30 @@ export async function getMemoryGraph() {
 
   return response.json();
 }
+
+export async function importGithub(url: string) {
+  const res = await fetch("http://localhost:8000/api/memory/github", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ url }),
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to import repository");
+  }
+
+  return res.json();
+}
+
+export async function forgetMemory(id: string) {
+  const res = await fetch(
+    `http://localhost:8000/api/memory/forget/${id}`,
+    {
+      method: "DELETE",
+    }
+  );
+
+  return res.json();
+}
