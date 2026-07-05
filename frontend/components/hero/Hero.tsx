@@ -6,10 +6,11 @@ import AmbientBackground from "./AmbientBackground";
 import LivingBrain from "./LivingBrain";
 import HeroInput from "./HeroInput";
 import GitHubImport from "../github/GitHubImport";
-
+import YouTubeImport from "../youtube/YouTubeImport";
 export default function Hero() {
   // 1. Add state to control the modal visibility
   const [showImport, setShowImport] = useState(false);
+  const [showYoutubeImport, setShowYoutubeImport] = useState(false);
 
   return (
     <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden py-24 sm:py-32">
@@ -94,6 +95,9 @@ export default function Hero() {
       {/* 3. Render the modal conditionally at the bottom of the component */}
       {showImport && (
         <GitHubImport onClose={() => setShowImport(false)} />
+      )}
+      {showYoutubeImport && (
+        <YouTubeImport onClose={() => setShowYoutubeImport(false)} />
       )}
 
     </section>

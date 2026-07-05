@@ -83,3 +83,22 @@ export async function forgetMemory(id: string) {
 
   return res.json();
 }
+
+export async function importYoutube(url: string) {
+  const response = await fetch(
+    "http://localhost:8000/api/memory/youtube",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ url }),
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to import YouTube video");
+  }
+
+  return response.json();
+}

@@ -11,14 +11,17 @@ export default function Timeline() {
   const [memories, setMemories] = useState<any[]>([]);
   const selected = useMemoryStore((s) => s.selectedMemory);
   const select = useMemoryStore((s) => s.selectMemory);
-
+  const [deletingId, setDeletingId] = useState<string | null>(null);
   async function loadMemories() {
     try {
       const data = await getMemories();
 
       const formatted = data.map((m: any) => ({
         id: m.id,
-        title: m.content,
+
+        title: "Memory",
+        content: m.content,
+        source: m.source,
         createdAt: new Date(m.created_at).toLocaleTimeString([], {
           hour: "2-digit",
           minute: "2-digit",
@@ -48,13 +51,20 @@ export default function Timeline() {
     e.stopPropagation();
 
     try {
+      setDeletingId(id);
+
       await forgetMemory(id);
+
       toast.success("Memory forgotten");
+
       window.dispatchEvent(new Event("memory-updated"));
-      loadMemories();
-    } catch (err) {
-      console.error(err);
+      window.dispatchEvent(new Event("clear-selection"));
+
+      await loadMemories();
+    } catch {
       toast.error("Failed to forget memory");
+    } finally {
+      setDeletingId(null);
     }
   }
 
@@ -95,22 +105,20 @@ export default function Timeline() {
                 <div key={memory.id} className="relative pl-8 pr-1">
                   {/* Node Dot */}
                   <div
-                    className={`absolute left-[7px] top-[22px] h-2 w-2 -translate-x-1/2 rounded-full ring-4 ring-[#0A0A0C] transition-colors duration-300 ${
-                      isSelected
-                        ? "bg-cyan-400 shadow-[0_0_10px_#22d3ee]"
-                        : "bg-zinc-600"
-                    }`}
+                    className={`absolute left-[7px] top-[22px] h-2 w-2 -translate-x-1/2 rounded-full ring-4 ring-[#0A0A0C] transition-colors duration-300 ${isSelected
+                      ? "bg-cyan-400 shadow-[0_0_10px_#22d3ee]"
+                      : "bg-zinc-600"
+                      }`}
                   />
 
                   {/* Interactive Card Wrapper */}
                   <motion.div
                     whileHover={{ scale: 1.01 }}
                     whileTap={{ scale: 0.98 }}
-                    className={`relative w-full rounded-xl border transition-all duration-200 ${
-                      isSelected
-                        ? "border-cyan-500/30 bg-cyan-500/10 shadow-lg shadow-cyan-900/10"
-                        : "border-white/5 bg-white/5 hover:border-white/15 hover:bg-white/10"
-                    }`}
+                    className={`relative w-full rounded-xl border transition-all duration-200 ${isSelected
+                      ? "border-cyan-500/30 bg-cyan-500/10 shadow-lg shadow-cyan-900/10"
+                      : "border-white/5 bg-white/5 hover:border-white/15 hover:bg-white/10"
+                      }`}
                   >
                     {/* Primary Click Target */}
                     <div
@@ -132,9 +140,8 @@ export default function Timeline() {
                       <div className="flex w-full items-start justify-between">
                         <div>
                           <p
-                            className={`font-mono text-[10px] uppercase tracking-wider ${
-                              isSelected ? "text-cyan-400" : "text-zinc-500"
-                            }`}
+                            className={`font-mono text-[10px] uppercase tracking-wider ${isSelected ? "text-cyan-400" : "text-zinc-500"
+                              }`}
                           >
                             {index === 0 ? "Latest" : "History"}
                           </p>
@@ -164,11 +171,15 @@ export default function Timeline() {
 
                     {/* Separate Delete Button (Absolutely Positioned) */}
                     <button
+                      disabled={deletingId === memory.id}
                       onClick={(e) => handleDelete(memory.id, e)}
-                      className="absolute right-3.5 top-3.5 z-10 rounded-md p-1 text-zinc-500 transition hover:bg-red-500/10 hover:text-red-400"
-                      aria-label="Delete memory"
+                      className="absolute right-3 top-3 rounded-md p-1"
                     >
-                      <Trash2 size={14} />
+                      {deletingId === memory.id ? (
+                        <div className="h-4 w-4 animate-spin rounded-full border-2 border-cyan-400 border-t-transparent" />
+                      ) : (
+                        <Trash2 size={14} />
+                      )}
                     </button>
                   </motion.div>
                 </div>

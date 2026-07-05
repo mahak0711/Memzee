@@ -6,6 +6,8 @@ import {
   GitBranch,
   PanelLeftClose,
   PanelRightClose,
+  Camera,
+  Play,
 } from "lucide-react";
 
 import SearchBar from "./SearchBar";
@@ -15,10 +17,12 @@ type Props = {
   nodeCount: number;
   edgeCount: number;
   nodes: any[];
+  onImportYoutube: () => void;
   onSelect: (node: any) => void;
   onReset: () => void;
   onFit: () => void;
   onImport: () => void;
+  onCapture: () => void;
 };
 
 export default function GraphToolbar({
@@ -29,6 +33,8 @@ export default function GraphToolbar({
   onReset,
   onFit,
   onImport,
+  onImportYoutube,
+  onCapture
 }: Props) {
   const timelineOpen = useUIStore((s) => s.timelineOpen);
   const inspectorOpen = useUIStore((s) => s.inspectorOpen);
@@ -38,7 +44,7 @@ export default function GraphToolbar({
 
   return (
     <div className="absolute left-6 top-6 z-50 w-[420px] rounded-2xl border border-zinc-800 bg-zinc-950/80 shadow-2xl ring-1 ring-white/5 backdrop-blur-xl">
-      
+
       {/* Header Section - Compacted to prevent blocking the graph */}
       <div className="flex flex-col gap-3 p-4">
         <div className="flex items-center justify-between">
@@ -55,7 +61,7 @@ export default function GraphToolbar({
 
       {/* Controls Section */}
       <div className="flex items-center justify-between rounded-b-2xl border-t border-zinc-800/50 bg-zinc-900/30 px-4 py-3">
-        
+
         <div className="flex items-center gap-2">
           {/* Graph Action Group */}
           <div className="flex items-center gap-1 rounded-xl border border-white/5 bg-black/40 p-1">
@@ -75,27 +81,33 @@ export default function GraphToolbar({
             </button>
           </div>
 
+          <button
+            onClick={onCapture}
+            className="rounded-xl bg-white/5 p-2 transition hover:bg-white/10"
+            title="Capture Graph"
+          >
+            <Camera size={18} />
+          </button>
+
           {/* Panel Toggle Group */}
           <div className="flex items-center gap-1 rounded-xl border border-white/5 bg-black/40 p-1">
             <button
               onClick={toggleTimeline}
               title="Toggle Timeline"
-              className={`rounded-lg p-1.5 transition-all active:scale-95 ${
-                timelineOpen
+              className={`rounded-lg p-1.5 transition-all active:scale-95 ${timelineOpen
                   ? "bg-cyan-500/15 text-cyan-400"
                   : "text-zinc-400 hover:bg-zinc-800 hover:text-zinc-100"
-              }`}
+                }`}
             >
               <PanelLeftClose size={16} strokeWidth={2.5} />
             </button>
             <button
               onClick={toggleInspector}
               title="Toggle Inspector"
-              className={`rounded-lg p-1.5 transition-all active:scale-95 ${
-                inspectorOpen
+              className={`rounded-lg p-1.5 transition-all active:scale-95 ${inspectorOpen
                   ? "bg-cyan-500/15 text-cyan-400"
                   : "text-zinc-400 hover:bg-zinc-800 hover:text-zinc-100"
-              }`}
+                }`}
             >
               <PanelRightClose size={16} strokeWidth={2.5} />
             </button>
@@ -110,7 +122,15 @@ export default function GraphToolbar({
           <GitBranch size={16} strokeWidth={2.5} className="transition-transform group-hover:-rotate-12" />
           Import Repo
         </button>
-        
+
+        <button
+onClick={onImportYoutube}
+          className="group flex items-center gap-2 rounded-xl bg-cyan-500 px-3 py-1.5 text-sm font-semibold text-cyan-950 transition-all hover:bg-cyan-400 hover:shadow-[0_0_15px_rgba(6,182,212,0.3)] active:scale-95"
+>
+<Play size={16}/>
+YouTube
+</button>
+
       </div>
     </div>
   );

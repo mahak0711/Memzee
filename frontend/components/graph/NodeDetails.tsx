@@ -28,6 +28,9 @@ const relatedNodes = relatedEdges.map((edge) => {
 
   return nodes.find((n) => n.id === otherId);
 });
+
+
+
   return (
     <aside className="absolute right-4 top-4 z-50 w-80 rounded-2xl border border-white/10 bg-[#111827] p-5 shadow-2xl">
       <div className="mb-4 flex items-center justify-between">

@@ -1,12 +1,20 @@
 "use client";
 
 import { useMemoryStore } from "@/lib/store/memory";
-
-const tags = ["Career", "Meeting"];
+import { useState } from "react";
 
 export default function Inspector() {
   const memory = useMemoryStore((state) => state.selectedMemory);
+  const [expanded, setExpanded] = useState(false);
 
+const MAX_PREVIEW = 500;
+
+const content = memory?.title ?? "";
+
+const preview =
+  content.length > MAX_PREVIEW
+    ? content.slice(0, MAX_PREVIEW) + "..."
+    : content;
   // 1. PROFESSIONAL EMPTY STATE
   if (!memory) {
     return (
@@ -69,8 +77,23 @@ Select any node in the graph to inspect:
         {/* Title & Description */}
         <div>
           <h3 className="text-base font-semibold text-zinc-100">
-            {memory.title}
-          </h3>
+  Memory
+</h3>
+
+<div className="mt-3 rounded-xl border border-white/10 bg-white/5 p-4">
+  <p className="whitespace-pre-wrap text-sm leading-7 text-zinc-300">
+    {expanded ? content : preview}
+  </p>
+
+  {content.length > MAX_PREVIEW && (
+    <button
+      onClick={() => setExpanded(!expanded)}
+      className="mt-3 text-sm font-medium text-cyan-400 hover:text-cyan-300"
+    >
+      {expanded ? "Show less" : "Read full content"}
+    </button>
+  )}
+</div>
           {/* Note: I assumed you meant memory.description here, as the original code duplicated memory.title
           <p className="mt-2 text-sm leading-relaxed text-zinc-400">
             {memory.description || "No additional context provided for this memory node."}
@@ -80,24 +103,8 @@ Select any node in the graph to inspect:
         <hr className="my-5 border-white/5" />
 
         {/* Tags Section */}
-        <div>
-          <div className="mb-3 flex items-center text-xs font-medium uppercase tracking-wider text-zinc-500">
-            <span className="mr-2 h-1.5 w-1.5 rounded-full bg-cyan-500/50"></span>
-            Assigned Tags
-          </div>
-          <div className="flex flex-wrap gap-2">
-            {tags.map((tag) => (
-              <span
-                key={tag}
-                className="flex items-center rounded-md border border-white/10 bg-white/5 px-2.5 py-1 text-xs font-medium text-zinc-300 transition-colors hover:bg-white/10"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        </div>
+       
 
-        <hr className="my-5 border-white/5" />
 
         {/* Metadata Grid (Key-Value pairs) */}
         <div className="space-y-3">

@@ -15,8 +15,12 @@ import MemoryNode from "./MemoryNode";
 import { getMemoryGraph } from "@/lib/api";
 import { useEffect, useState } from "react";
 import GraphToolbar from "./GraphToolbar";
-import { useRouter } from "next/navigation";
 import GitHubImport from "../github/GitHubImport";
+import { toPng } from "html-to-image";
+import { toast } from "sonner";
+import YouTubeImport from "../youtube/YouTubeImport";
+import { useRef } from "react";
+
 const nodeTypes = {
   memory: MemoryNode,
 };
@@ -84,7 +88,71 @@ export default function MemoryGraph() {
   const [loading, setLoading] = useState(true);
   const { setCenter, fitView } = useReactFlow();
   const [showImport, setShowImport] = useState(false);
-const router=useRouter();
+  const graphRef = useRef<HTMLDivElement>(null);
+  const [showYoutubeImport, setShowYoutubeImport] = useState(false);
+
+  const handleCapture = async () => {
+    if (!graphRef.current) return;
+
+    try {
+      toast.loading("Capturing graph...", {
+        id: "capture",
+      });
+
+      const viewport = graphRef.current.querySelector(
+        ".react-flow__viewport"
+      ) as HTMLElement;
+
+      if (!viewport) return;
+
+      const dataUrl = await toPng(viewport, {
+        cacheBust: true,
+        pixelRatio: 2,
+        backgroundColor: "#09090B",
+      });
+
+      const link = document.createElement("a");
+
+      link.download =
+        selectedNode?.data?.title
+          ?.replace(/\s+/g, "-")
+          .toLowerCase() + ".png" ||
+        "memzee-graph.png";
+
+      link.href = dataUrl;
+      link.click();
+
+      toast.success("Graph exported!", {
+        id: "capture",
+      });
+    } catch (err) {
+      console.error(err);
+
+      toast.error("Failed to capture graph.", {
+        id: "capture",
+      });
+    }
+  };
+
+const focusNode = (node: any) => {
+  const connected = new Set<string>();
+  connected.add(node.id);
+
+  edges.forEach((edge: any) => {
+    if (edge.source === node.id) connected.add(edge.target);
+    if (edge.target === node.id) connected.add(edge.source);
+  });
+
+  setHighlighted(connected);
+  setSelectedNode(node);
+
+  requestAnimationFrame(() => {
+    fitView({
+      duration: 700,
+      padding: 0.45,
+    });
+  });
+};
 
   const loadGraph = async () => {
     try {
@@ -114,10 +182,22 @@ const router=useRouter();
         animated: true,
       }));
 
-      const layout = getLayoutedElements(nodes, edges);
+      
+const nodeIds = new Set(nodes.map((n: any) => n.id));
 
-      setNodes(layout.nodes);
-      setEdges(layout.edges);
+const validEdges = edges.filter(
+  (edge: any) =>
+    nodeIds.has(edge.source) &&
+    nodeIds.has(edge.target)
+);
+
+const layout = getLayoutedElements(
+  nodes,
+  validEdges
+);
+
+setNodes(layout.nodes);
+setEdges(layout.edges);
       requestAnimationFrame(() => {
         fitView({
           padding: 0.35,
@@ -166,11 +246,32 @@ const router=useRouter();
     const refresh = () => loadGraph();
 
     window.addEventListener("memory-updated", refresh);
+    
 
     return () => {
       window.removeEventListener("memory-updated", refresh);
     };
   }, []);
+
+  useEffect(() => {
+  const clearSelection = () => {
+    setSelectedNode(null);
+    setHighlighted(new Set());
+
+   requestAnimationFrame(() => {
+  fitView({
+    duration:600,
+    padding:.35,
+  });
+});
+  };
+
+  window.addEventListener("clear-selection", clearSelection);
+
+  return () => {
+    window.removeEventListener("clear-selection", clearSelection);
+  };
+}, [fitView]);
 
   const displayNodes = nodes.map((node: any) => ({
     ...node,
@@ -181,58 +282,41 @@ const router=useRouter();
           ? 1
           : highlighted.has(node.id)
             ? 1
-            : 0.35,
+            : 0.08,
 
       transition: "opacity .25s",
     },
   }));
 
-  useEffect(() => {
+useEffect(() => {
+  const handler = (e: any) => {
+    console.log(e.detail);
 
-    const handler = (e: any) => {
+   const node = nodes.find((n: any) =>
+  e.detail.title
+    ?.toLowerCase()
+    .includes(n.data.title.toLowerCase())
+);
 
-      const node = nodes.find(
-        (n: any) => n.data.title === e.detail.title
-      );
+if (!node) return;
 
-      if (!node) return;
+focusNode(node);
 
-      setSelectedNode(node);
+    console.log("Found node:", node);
 
-      const connected = new Set<string>();
-      connected.add(node.id);
+focusNode(node);
 
-      edges.forEach((edge: any) => {
-        if (edge.source === node.id) connected.add(edge.target);
-        if (edge.target === node.id) connected.add(edge.source);
-      });
+    
 
-      setHighlighted(connected);
+    
+  };
 
-      setCenter(
-        node.position.x + 120,
-        node.position.y + 50,
-        {
-          zoom: 1.6,
-          duration: 700,
-        }
-      );
+  window.addEventListener("focus-node", handler);
 
-    };
-
-    window.addEventListener(
-      "focus-node",
-      handler
-    );
-
-    return () =>
-      window.removeEventListener(
-        "focus-node",
-        handler
-      );
-
-  }, [nodes]);
-
+  return () => {
+    window.removeEventListener("focus-node", handler);
+  };
+}, [nodes, edges, fitView]);
   const displayEdges = edges.map((edge: any) => ({
     ...edge,
 
@@ -279,94 +363,65 @@ const router=useRouter();
   }
   return (
     <div className="relative h-screen w-full">
- 
-   
-<GraphToolbar
-  nodeCount={nodes.length}
-  edgeCount={edges.length}
-  nodes={displayNodes}
-  onSelect={(node) => {
-    setSelectedNode(node);
 
-    const connected = new Set<string>();
-    connected.add(node.id);
 
-    edges.forEach((edge: any) => {
-      if (edge.source === node.id) connected.add(edge.target);
-      if (edge.target === node.id) connected.add(edge.source);
-    });
-
-    setHighlighted(connected);
-
-    setCenter(
-      node.position.x + 120,
-      node.position.y + 50,
-      {
-        zoom: 1.6,
-        duration: 700,
-      }
-    );
-  }}
-  onReset={() => {
-    fitView({
-      duration: 700,
-      padding: 0.35,
-    });
-
-    setHighlighted(new Set());
-    setSelectedNode(null);
-  }}
-  onFit={() =>
-    fitView({
-      duration: 700,
-      padding: 0.35,
-    })
-  }
-onImport={() => setShowImport(true)}
-/>
-      <ReactFlow
+      <GraphToolbar
+        nodeCount={nodes.length}
+        edgeCount={edges.length}
         nodes={displayNodes}
-        edges={displayEdges}
-        nodeTypes={nodeTypes}
-        onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
-        onNodeClick={(_, node) => {
-
-          setSelectedNode(node);
-
-          const connected = new Set<string>();
-
-          connected.add(node.id);
-
-          edges.forEach((edge: any) => {
-
-            if (edge.source === node.id) {
-              connected.add(edge.target);
-            }
-
-            if (edge.target === node.id) {
-              connected.add(edge.source);
-            }
-
+       onSelect={(node) => {
+  focusNode(node);
+}}
+        onReset={() => {
+          fitView({
+            duration: 700,
+            padding: 0.35,
           });
 
-          setHighlighted(connected);
-
+          setHighlighted(new Set());
+          setSelectedNode(null);
         }}
-        fitView
-        fitViewOptions={{ padding: 0.3 }}
+        onFit={() =>
+          fitView({
+            duration: 700,
+            padding: 0.35,
+          })
+        }
+        onCapture={handleCapture}
+        onImport={() => setShowImport(true)}
+        onImportYoutube={() => setShowYoutubeImport(true)}
+      />
+      <div
+        ref={graphRef}
+        className="h-full w-full"
       >
-<Background
-  gap={24}
-  size={1.5}
-/>
-<MiniMap
-  pannable
-  zoomable
-  nodeStrokeWidth={3}
-/>        <Controls />
-      </ReactFlow>
+        <ReactFlow
+          nodes={displayNodes}
+          edges={displayEdges}
+          nodeTypes={nodeTypes}
+          onNodesChange={onNodesChange}
+          onEdgesChange={onEdgesChange}
+         
 
+           onNodeClick={(_, node) => {
+  focusNode(node);
+}}
+
+          
+          fitView
+          fitViewOptions={{ padding: 0.3 }}
+        >
+          <Background
+            gap={24}
+            size={1.5}
+          />
+          <MiniMap
+            pannable
+            zoomable
+            nodeStrokeWidth={3}
+          />        <Controls />
+        </ReactFlow>
+      </div>
       <NodeDetails
         node={selectedNode}
         nodes={nodes}
@@ -377,9 +432,14 @@ onImport={() => setShowImport(true)}
         }}
       />
       {showImport && (
-    <GitHubImport
-        onClose={() => setShowImport(false)}
-    />
+        <GitHubImport
+          onClose={() => setShowImport(false)}
+        />
+      )}
+      {showYoutubeImport && (
+  <YouTubeImport
+    onClose={() => setShowYoutubeImport(false)}
+  />
 )}
     </div>
   );
