@@ -1,1 +1,519 @@
-[]
+[
+  {
+    "subject": {
+      "name": "User",
+      "type": "Person"
+    },
+    "relation": "consumes information from",
+    "object": {
+      "name": "YouTube",
+      "type": "Platform"
+    }
+  },
+  {
+    "subject": {
+      "name": "User",
+      "type": "Person"
+    },
+    "relation": "consumes information from",
+    "object": {
+      "name": "Notes",
+      "type": "Other"
+    }
+  },
+  {
+    "subject": {
+      "name": "Finding and connecting information",
+      "type": "Concept"
+    },
+    "relation": "is",
+    "object": {
+      "name": "Difficult",
+      "type": "Other"
+    }
+  },
+  {
+    "subject": {
+      "name": "User",
+      "type": "Person"
+    },
+    "relation": "built",
+    "object": {
+      "name": "mimi",
+      "type": "Project"
+    }
+  },
+  {
+    "subject": {
+      "name": "mimi",
+      "type": "Project"
+    },
+    "relation": "is",
+    "object": {
+      "name": "AI-powered",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "mimi",
+      "type": "Project"
+    },
+    "relation": "transforms information into",
+    "object": {
+      "name": "Interactive knowledge graph",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "mimi",
+      "type": "Project"
+    },
+    "relation": "has",
+    "object": {
+      "name": "Landing page",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "mimi",
+      "type": "Project"
+    },
+    "relation": "lets user capture",
+    "object": {
+      "name": "Knowledge",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "mimi",
+      "type": "Project"
+    },
+    "relation": "lets user import from",
+    "object": {
+      "name": "External sources",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Knowledge graph",
+      "type": "Concept"
+    },
+    "relation": "is generated from",
+    "object": {
+      "name": "Memory",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "User",
+      "type": "Person"
+    },
+    "relation": "can collapse",
+    "object": {
+      "name": "Inspector",
+      "type": "Tool"
+    }
+  },
+  {
+    "subject": {
+      "name": "User",
+      "type": "Person"
+    },
+    "relation": "can collapse",
+    "object": {
+      "name": "Timeline",
+      "type": "Tool"
+    }
+  },
+  {
+    "subject": {
+      "name": "Knowledge graph",
+      "type": "Concept"
+    },
+    "relation": "has",
+    "object": {
+      "name": "Connecting nodes",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Knowledge graph",
+      "type": "Concept"
+    },
+    "relation": "has",
+    "object": {
+      "name": "Properties",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "User",
+      "type": "Person"
+    },
+    "relation": "can import",
+    "object": {
+      "name": "GitHub repo",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "GitHub repo",
+      "type": "Concept"
+    },
+    "relation": "can be imported from",
+    "object": {
+      "name": "Landing page",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "User",
+      "type": "Person"
+    },
+    "relation": "takes example of",
+    "object": {
+      "name": "Project with a read me",
+      "type": "Project"
+    }
+  },
+  {
+    "subject": {
+      "name": "mimi",
+      "type": "Project"
+    },
+    "relation": "imports",
+    "object": {
+      "name": "Repository",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "mimi",
+      "type": "Project"
+    },
+    "relation": "converts",
+    "object": {
+      "name": "Read me",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Read me",
+      "type": "Concept"
+    },
+    "relation": "is converted into",
+    "object": {
+      "name": "Structured knowledge",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "GitHub repo",
+      "type": "Concept"
+    },
+    "relation": "is imported into",
+    "object": {
+      "name": "mimi",
+      "type": "Project"
+    }
+  },
+  {
+    "subject": {
+      "name": "User",
+      "type": "Person"
+    },
+    "relation": "can search",
+    "object": {
+      "name": "Knowledge graph",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Knowledge graph",
+      "type": "Concept"
+    },
+    "relation": "is powered by",
+    "object": {
+      "name": "Cogi",
+      "type": "Technology"
+    }
+  },
+  {
+    "subject": {
+      "name": "mimi",
+      "type": "Project"
+    },
+    "relation": "processes",
+    "object": {
+      "name": "YouTube videos",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "mimi",
+      "type": "Project"
+    },
+    "relation": "starts",
+    "object": {
+      "name": "Transcript",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "mimi",
+      "type": "Project"
+    },
+    "relation": "stores",
+    "object": {
+      "name": "Transcript",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Transcript",
+      "type": "Concept"
+    },
+    "relation": "is stored as",
+    "object": {
+      "name": "Searchable image",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Recall",
+      "type": "Concept"
+    },
+    "relation": "is powered by",
+    "object": {
+      "name": "Cogi",
+      "type": "Technology"
+    }
+  },
+  {
+    "subject": {
+      "name": "Recall",
+      "type": "Concept"
+    },
+    "relation": "is a functionality of",
+    "object": {
+      "name": "Cogi",
+      "type": "Technology"
+    }
+  },
+  {
+    "subject": {
+      "name": "User",
+      "type": "Person"
+    },
+    "relation": "uses",
+    "object": {
+      "name": "Control + K",
+      "type": "Other"
+    }
+  },
+  {
+    "subject": {
+      "name": "Control + K",
+      "type": "Other"
+    },
+    "relation": "is a",
+    "object": {
+      "name": "Shortcut key",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "mimi",
+      "type": "Project"
+    },
+    "relation": "searches from",
+    "object": {
+      "name": "Memories",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "mimi",
+      "type": "Project"
+    },
+    "relation": "supports",
+    "object": {
+      "name": "Natural language recall",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Natural language recall",
+      "type": "Concept"
+    },
+    "relation": "is an alternative to",
+    "object": {
+      "name": "Keyword search",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Natural language recall",
+      "type": "Concept"
+    },
+    "relation": "is powered by",
+    "object": {
+      "name": "AI",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "User",
+      "type": "Person"
+    },
+    "relation": "can explore",
+    "object": {
+      "name": "Connected concepts",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "User",
+      "type": "Person"
+    },
+    "relation": "can inspect",
+    "object": {
+      "name": "Relationships",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "User",
+      "type": "Person"
+    },
+    "relation": "can export",
+    "object": {
+      "name": "Knowledge graph",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "User",
+      "type": "Person"
+    },
+    "relation": "can take",
+    "object": {
+      "name": "Snapshot",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Snapshot",
+      "type": "Concept"
+    },
+    "relation": "is downloaded to",
+    "object": {
+      "name": "Desktop",
+      "type": "Other"
+    }
+  },
+  {
+    "subject": {
+      "name": "User",
+      "type": "Person"
+    },
+    "relation": "uses Cogi for",
+    "object": {
+      "name": "Deleting memories",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Deleting memories",
+      "type": "Concept"
+    },
+    "relation": "removes from",
+    "object": {
+      "name": "Timeline",
+      "type": "Tool"
+    }
+  },
+  {
+    "subject": {
+      "name": "Deleting memories",
+      "type": "Concept"
+    },
+    "relation": "removes from",
+    "object": {
+      "name": "Knowledge graph",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "mimi",
+      "type": "Project"
+    },
+    "relation": "transforms information into",
+    "object": {
+      "name": "Connected knowledge",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Connected knowledge",
+      "type": "Concept"
+    },
+    "relation": "makes easier to",
+    "object": {
+      "name": "Remember",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Connected knowledge",
+      "type": "Concept"
+    },
+    "relation": "makes easier to",
+    "object": {
+      "name": "Explore",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Connected knowledge",
+      "type": "Concept"
+    },
+    "relation": "makes easier to",
+    "object": {
+      "name": "Record",
+      "type": "Concept"
+    }
+  }
+]

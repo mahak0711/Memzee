@@ -1,31 +1,31 @@
-from youtube_transcript_api import YouTubeTranscriptApi
-import re
+from supadata import Supadata, SupadataError
+from app.config import settings
 
 
 class YouTubeService:
 
-    def get_video_id(self, url: str):
-        match = re.search(
-            r"(?:v=|youtu\.be/)([^&?/]+)",
-            url,
+    def __init__(self):
+        self.client = Supadata(
+            api_key=settings.SUPADATA_API_KEY
         )
 
-        if not match:
-            raise Exception("Invalid YouTube URL")
+    def fetch_transcript(self, url: str) -> str:
+        try:
+            transcript = self.client.transcript(
+                url=url,
+                text=True,
+                mode="auto",
+            )
 
-        return match.group(1)
+            if hasattr(transcript, "content"):
+                return transcript.content
 
-    def fetch_transcript(self, url: str):
+            raise Exception(
+                "Transcript is still processing."
+            )
 
-        video_id = self.get_video_id(url)
-
-        ytt_api = YouTubeTranscriptApi()
-
-        transcript = ytt_api.fetch(video_id)
-
-        return " ".join(
-            snippet.text for snippet in transcript.snippets
-        )
+        except SupadataError as e:
+            raise Exception(e.message)
 
 
 youtube_service = YouTubeService()
