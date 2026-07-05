@@ -15,7 +15,7 @@
       "name": "Mahak Kankaria",
       "type": "Person"
     },
-    "relation": "builds",
+    "relation": "building",
     "object": {
       "name": "Memzee",
       "type": "Platform"
@@ -37,7 +37,7 @@
       "name": "Memzee",
       "type": "Platform"
     },
-    "relation": "uses",
+    "relation": "uses for backend",
     "object": {
       "name": "FastAPI",
       "type": "Framework"
@@ -48,18 +48,7 @@
       "name": "Memzee",
       "type": "Platform"
     },
-    "relation": "has component",
-    "object": {
-      "name": "Frontend",
-      "type": "Concept"
-    }
-  },
-  {
-    "subject": {
-      "name": "Frontend",
-      "type": "Concept"
-    },
-    "relation": "uses",
+    "relation": "uses for frontend",
     "object": {
       "name": "Next.js",
       "type": "Framework"
@@ -67,10 +56,10 @@
   },
   {
     "subject": {
-      "name": "Frontend",
-      "type": "Concept"
+      "name": "Memzee",
+      "type": "Platform"
     },
-    "relation": "uses",
+    "relation": "uses for frontend",
     "object": {
       "name": "React",
       "type": "Library"
@@ -78,10 +67,10 @@
   },
   {
     "subject": {
-      "name": "Frontend",
-      "type": "Concept"
+      "name": "Memzee",
+      "type": "Platform"
     },
-    "relation": "is written in",
+    "relation": "has frontend written in",
     "object": {
       "name": "TypeScript",
       "type": "Language"
@@ -103,7 +92,7 @@
       "name": "Memzee",
       "type": "Platform"
     },
-    "relation": "is hosted on",
+    "relation": "hosted on",
     "object": {
       "name": "Vercel",
       "type": "Platform"
@@ -122,10 +111,10 @@
   },
   {
     "subject": {
-      "name": "Memzee",
+      "name": "Cognee Cloud",
       "type": "Platform"
     },
-    "relation": "uses for",
+    "relation": "provides",
     "object": {
       "name": "Semantic Memory",
       "type": "Concept"
@@ -191,7 +180,7 @@
       "name": "Mahak Kankaria",
       "type": "Person"
     },
-    "relation": "participates in",
+    "relation": "participating in",
     "object": {
       "name": "Cognee Hackathon",
       "type": "Event"
@@ -199,596 +188,585 @@
   },
   {
     "subject": {
-      "name": "Mahak Kankaria",
+      "name": "Cognee Hackathon",
+      "type": "Event"
+    },
+    "relation": "organized by",
+    "object": {
+      "name": "Cognee",
+      "type": "Organization"
+    }
+  },
+  {
+    "subject": {
+      "name": "Ocean water",
+      "type": "Concept"
+    },
+    "relation": "is",
+    "object": {
+      "name": "salty",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Oceans",
+      "type": "Location"
+    },
+    "relation": "cover",
+    "object": {
+      "name": "70% of Earth's surface",
+      "type": "Other"
+    }
+  },
+  {
+    "subject": {
+      "name": "Oceans",
+      "type": "Location"
+    },
+    "relation": "account for",
+    "object": {
+      "name": "97% of all water",
+      "type": "Other"
+    }
+  },
+  {
+    "subject": {
+      "name": "Ocean water",
+      "type": "Concept"
+    },
+    "relation": "contains",
+    "object": {
+      "name": "3.5% salt",
+      "type": "Other"
+    }
+  },
+  {
+    "subject": {
+      "name": "Sea water",
+      "type": "Concept"
+    },
+    "relation": "contains",
+    "object": {
+      "name": "220 million tons of salt per cubic mile",
+      "type": "Other"
+    }
+  },
+  {
+    "subject": {
+      "name": "Salt in the ocean",
+      "type": "Concept"
+    },
+    "relation": "comes from",
+    "object": {
+      "name": "Run off from the land",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Salt in the ocean",
+      "type": "Concept"
+    },
+    "relation": "comes from",
+    "object": {
+      "name": "Openings in the sea floor",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Rain",
+      "type": "Concept"
+    },
+    "relation": "collects",
+    "object": {
+      "name": "Carbon dioxide",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Rain",
+      "type": "Concept"
+    },
+    "relation": "from",
+    "object": {
+      "name": "Atmosphere",
+      "type": "Location"
+    }
+  },
+  {
+    "subject": {
+      "name": "Rain",
+      "type": "Concept"
+    },
+    "relation": "turns",
+    "object": {
+      "name": "fresh water slightly acidic",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Acidic water",
+      "type": "Concept"
+    },
+    "relation": "erodes",
+    "object": {
+      "name": "Rocks",
+      "type": "Other"
+    }
+  },
+  {
+    "subject": {
+      "name": "Acidic water",
+      "type": "Concept"
+    },
+    "relation": "picks up",
+    "object": {
+      "name": "small amounts of salt",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Acidic water",
+      "type": "Concept"
+    },
+    "relation": "picks up",
+    "object": {
+      "name": "other dissolved minerals",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Mixed rainwater",
+      "type": "Concept"
+    },
+    "relation": "makes its way to",
+    "object": {
+      "name": "Ocean",
+      "type": "Location"
+    }
+  },
+  {
+    "subject": {
+      "name": "Dissolved minerals",
+      "type": "Concept"
+    },
+    "relation": "such as",
+    "object": {
+      "name": "Calcium",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Calcium",
+      "type": "Concept"
+    },
+    "relation": "is extracted from",
+    "object": {
+      "name": "water",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Calcium",
+      "type": "Concept"
+    },
+    "relation": "extracted by",
+    "object": {
+      "name": "organisms",
+      "type": "Other"
+    }
+  },
+  {
+    "subject": {
+      "name": "Salt",
+      "type": "Concept"
+    },
+    "relation": "tends to remain",
+    "object": {
+      "name": "in water",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Salt",
+      "type": "Concept"
+    },
+    "relation": "makes",
+    "object": {
+      "name": "water undrinkable and salty",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Hydrothermal fluids",
+      "type": "Concept"
+    },
+    "relation": "are responsible for",
+    "object": {
+      "name": "oceanic water becoming salty",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Hydrothermal fluids",
+      "type": "Concept"
+    },
+    "relation": "come from",
+    "object": {
+      "name": "Vents in the sea floor",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Salted ocean water",
+      "type": "Concept"
+    },
+    "relation": "seeps into",
+    "object": {
+      "name": "cracks in the sea floor",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Salted ocean water",
+      "type": "Concept"
+    },
+    "relation": "gets heated by",
+    "object": {
+      "name": "magma",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Magma",
+      "type": "Concept"
+    },
+    "relation": "from",
+    "object": {
+      "name": "Earth's core",
+      "type": "Location"
+    }
+  },
+  {
+    "subject": {
+      "name": "Heat",
+      "type": "Concept"
+    },
+    "relation": "causes",
+    "object": {
+      "name": "a chain of chemical reactions",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Water",
+      "type": "Concept"
+    },
+    "relation": "loses",
+    "object": {
+      "name": "oxygen",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Water",
+      "type": "Concept"
+    },
+    "relation": "loses",
+    "object": {
+      "name": "magnesium",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Water",
+      "type": "Concept"
+    },
+    "relation": "loses",
+    "object": {
+      "name": "sulfates",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Water",
+      "type": "Concept"
+    },
+    "relation": "picks up",
+    "object": {
+      "name": "metals",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Metals",
+      "type": "Concept"
+    },
+    "relation": "include",
+    "object": {
+      "name": "iron",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Metals",
+      "type": "Concept"
+    },
+    "relation": "include",
+    "object": {
+      "name": "zinc",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Metals",
+      "type": "Concept"
+    },
+    "relation": "include",
+    "object": {
+      "name": "copper",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Water",
+      "type": "Concept"
+    },
+    "relation": "picks up from",
+    "object": {
+      "name": "surrounding rocks",
+      "type": "Other"
+    }
+  },
+  {
+    "subject": {
+      "name": "Heated water",
+      "type": "Concept"
+    },
+    "relation": "is released through",
+    "object": {
+      "name": "Vents in the seafloor",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Heated water",
+      "type": "Concept"
+    },
+    "relation": "carries",
+    "object": {
+      "name": "additional metals",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Ocean water",
+      "type": "Concept"
+    },
+    "relation": "gets",
+    "object": {
+      "name": "saltier",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Lakes",
+      "type": "Location"
+    },
+    "relation": "are not",
+    "object": {
+      "name": "salty",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Rivers",
+      "type": "Location"
+    },
+    "relation": "are not",
+    "object": {
+      "name": "salty",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Lakes",
+      "type": "Location"
+    },
+    "relation": "have",
+    "object": {
+      "name": "some amount of salt",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Rivers",
+      "type": "Location"
+    },
+    "relation": "have",
+    "object": {
+      "name": "some amount of salt",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Lakes",
+      "type": "Location"
+    },
+    "relation": "are",
+    "object": {
+      "name": "continually flowing",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Rivers",
+      "type": "Location"
+    },
+    "relation": "are",
+    "object": {
+      "name": "continually flowing",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Salt",
+      "type": "Concept"
+    },
+    "relation": "gets carried away into",
+    "object": {
+      "name": "Ocean",
+      "type": "Location"
+    }
+  },
+  {
+    "subject": {
+      "name": "Salted water",
+      "type": "Concept"
+    },
+    "relation": "is home to",
+    "object": {
+      "name": "many aquatic animals",
+      "type": "Other"
+    }
+  },
+  {
+    "subject": {
+      "name": "Salted water",
+      "type": "Concept"
+    },
+    "relation": "is home to",
+    "object": {
+      "name": "many aquatic plants",
+      "type": "Other"
+    }
+  },
+  {
+    "subject": {
+      "name": "Salted water",
+      "type": "Concept"
+    },
+    "relation": "plays a role in",
+    "object": {
+      "name": "existence of our Earth",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Oceans",
+      "type": "Location"
+    },
+    "relation": "need to be kept",
+    "object": {
+      "name": "clean",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Oceans",
+      "type": "Location"
+    },
+    "relation": "need to be kept free from",
+    "object": {
+      "name": "any pollution",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Sea water",
+      "type": "Concept"
+    },
+    "relation": "contains common mineral",
+    "object": {
+      "name": "Chloride",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Sea water",
+      "type": "Concept"
+    },
+    "relation": "contains common mineral",
+    "object": {
+      "name": "Sodium",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Chloride and Sodium",
+      "type": "Concept"
+    },
+    "relation": "make up",
+    "object": {
+      "name": "85% of all dissolved minerals in the ocean",
+      "type": "Other"
+    }
+  },
+  {
+    "subject": {
+      "name": "Dr. Binox",
       "type": "Person"
     },
-    "relation": "builds",
+    "relation": "is",
     "object": {
-      "name": "Memzee",
-      "type": "Project"
-    }
-  },
-  {
-    "subject": {
-      "name": "Memzee",
-      "type": "Project"
-    },
-    "relation": "is a type of",
-    "object": {
-      "name": "AI memory platform",
-      "type": "Concept"
-    }
-  },
-  {
-    "subject": {
-      "name": "Memzee",
-      "type": "Project"
-    },
-    "relation": "uses",
-    "object": {
-      "name": "FastAPI",
-      "type": "Framework"
-    }
-  },
-  {
-    "subject": {
-      "name": "Memzee",
-      "type": "Project"
-    },
-    "relation": "uses",
-    "object": {
-      "name": "Next.js",
-      "type": "Framework"
-    }
-  },
-  {
-    "subject": {
-      "name": "Memzee",
-      "type": "Project"
-    },
-    "relation": "uses",
-    "object": {
-      "name": "React",
-      "type": "Library"
-    }
-  },
-  {
-    "subject": {
-      "name": "Memzee",
-      "type": "Project"
-    },
-    "relation": "uses language",
-    "object": {
-      "name": "TypeScript",
-      "type": "Language"
-    }
-  },
-  {
-    "subject": {
-      "name": "Memzee",
-      "type": "Project"
-    },
-    "relation": "stores data in",
-    "object": {
-      "name": "PostgreSQL",
-      "type": "Database"
-    }
-  },
-  {
-    "subject": {
-      "name": "Memzee",
-      "type": "Project"
-    },
-    "relation": "hosted on",
-    "object": {
-      "name": "Vercel",
-      "type": "Platform"
-    }
-  },
-  {
-    "subject": {
-      "name": "Memzee",
-      "type": "Project"
-    },
-    "relation": "integrates with",
-    "object": {
-      "name": "Cognee Cloud",
-      "type": "Platform"
-    }
-  },
-  {
-    "subject": {
-      "name": "GitGud",
-      "type": "Platform"
-    },
-    "relation": "is a",
-    "object": {
-      "name": "gamified onboarding platform",
-      "type": "Platform"
-    }
-  },
-  {
-    "subject": {
-      "name": "GitGud",
-      "type": "Platform"
-    },
-    "relation": "helps",
-    "object": {
-      "name": "junior developers",
-      "type": "Person"
-    }
-  },
-  {
-    "subject": {
-      "name": "junior developers",
-      "type": "Person"
-    },
-    "relation": "make",
-    "object": {
-      "name": "Open Source contribution",
-      "type": "Concept"
-    }
-  },
-  {
-    "subject": {
-      "name": "GitGud",
-      "type": "Platform"
-    },
-    "relation": "helps overcome",
-    "object": {
-      "name": "tutorial hell",
-      "type": "Concept"
-    }
-  },
-  {
-    "subject": {
-      "name": "GitGud",
-      "type": "Platform"
-    },
-    "relation": "aggregates",
-    "object": {
-      "name": "beginner-friendly issues",
-      "type": "Concept"
-    }
-  },
-  {
-    "subject": {
-      "name": "GitGud",
-      "type": "Platform"
-    },
-    "relation": "provides",
-    "object": {
-      "name": "AI-powered workspace",
-      "type": "Tool"
-    }
-  },
-  {
-    "subject": {
-      "name": "AI-powered workspace",
-      "type": "Tool"
-    },
-    "relation": "guides",
-    "object": {
-      "name": "junior developers",
-      "type": "Person"
-    }
-  },
-  {
-    "subject": {
-      "name": "GitGud",
-      "type": "Platform"
-    },
-    "relation": "has feature",
-    "object": {
-      "name": "Smart Feed",
-      "type": "Concept"
-    }
-  },
-  {
-    "subject": {
-      "name": "Smart Feed",
-      "type": "Concept"
-    },
-    "relation": "fetches",
-    "object": {
-      "name": "Good First Issues",
-      "type": "Concept"
-    }
-  },
-  {
-    "subject": {
-      "name": "Smart Feed",
-      "type": "Concept"
-    },
-    "relation": "uses",
-    "object": {
-      "name": "GitHub API",
-      "type": "API"
-    }
-  },
-  {
-    "subject": {
-      "name": "GitGud",
-      "type": "Platform"
-    },
-    "relation": "has feature",
-    "object": {
-      "name": "Dynamic Filtering",
-      "type": "Concept"
-    }
-  },
-  {
-    "subject": {
-      "name": "Dynamic Filtering",
-      "type": "Concept"
-    },
-    "relation": "filters by",
-    "object": {
-      "name": "tech stack",
-      "type": "Concept"
-    }
-  },
-  {
-    "subject": {
-      "name": "tech stack",
-      "type": "Concept"
-    },
-    "relation": "includes",
-    "object": {
-      "name": "JavaScript",
-      "type": "Language"
-    }
-  },
-  {
-    "subject": {
-      "name": "tech stack",
-      "type": "Concept"
-    },
-    "relation": "includes",
-    "object": {
-      "name": "Python",
-      "type": "Language"
-    }
-  },
-  {
-    "subject": {
-      "name": "tech stack",
-      "type": "Concept"
-    },
-    "relation": "includes",
-    "object": {
-      "name": "TypeScript",
-      "type": "Language"
-    }
-  },
-  {
-    "subject": {
-      "name": "GitGud",
-      "type": "Platform"
-    },
-    "relation": "has feature",
-    "object": {
-      "name": "In-Browser Workspace",
-      "type": "Tool"
-    }
-  },
-  {
-    "subject": {
-      "name": "In-Browser Workspace",
-      "type": "Tool"
-    },
-    "relation": "is a type of",
-    "object": {
-      "name": "VS Code-like environment",
-      "type": "Tool"
-    }
-  },
-  {
-    "subject": {
-      "name": "In-Browser Workspace",
-      "type": "Tool"
-    },
-    "relation": "helps fix",
-    "object": {
-      "name": "bugs",
-      "type": "Concept"
-    }
-  },
-  {
-    "subject": {
-      "name": "GitGud",
-      "type": "Platform"
-    },
-    "relation": "has feature",
-    "object": {
-      "name": "AI Mentor",
-      "type": "Concept"
-    }
-  },
-  {
-    "subject": {
-      "name": "AI Mentor",
-      "type": "Concept"
-    },
-    "relation": "uses",
-    "object": {
-      "name": "Gemini Pro",
-      "type": "Platform"
-    }
-  },
-  {
-    "subject": {
-      "name": "AI Mentor",
-      "type": "Concept"
-    },
-    "relation": "explains",
-    "object": {
-      "name": "code context",
-      "type": "Concept"
-    }
-  },
-  {
-    "subject": {
-      "name": "AI Mentor",
-      "type": "Concept"
-    },
-    "relation": "offers",
-    "object": {
-      "name": "hints",
-      "type": "Concept"
-    }
-  },
-  {
-    "subject": {
-      "name": "GitGud",
-      "type": "Platform"
-    },
-    "relation": "uses framework",
-    "object": {
-      "name": "Next.js 15",
-      "type": "Framework"
-    }
-  },
-  {
-    "subject": {
-      "name": "Next.js 15",
-      "type": "Framework"
-    },
-    "relation": "includes",
-    "object": {
-      "name": "App Router",
-      "type": "Concept"
-    }
-  },
-  {
-    "subject": {
-      "name": "GitGud",
-      "type": "Platform"
-    },
-    "relation": "uses language",
-    "object": {
-      "name": "TypeScript",
-      "type": "Language"
-    }
-  },
-  {
-    "subject": {
-      "name": "GitGud",
-      "type": "Platform"
-    },
-    "relation": "uses styling framework",
-    "object": {
-      "name": "Tailwind CSS",
-      "type": "Framework"
-    }
-  },
-  {
-    "subject": {
-      "name": "GitGud",
-      "type": "Platform"
-    },
-    "relation": "uses auth provider",
-    "object": {
-      "name": "Clerk",
-      "type": "Platform"
-    }
-  },
-  {
-    "subject": {
-      "name": "Clerk",
-      "type": "Platform"
-    },
-    "relation": "supports",
-    "object": {
-      "name": "GitHub OAuth",
-      "type": "API"
-    }
-  },
-  {
-    "subject": {
-      "name": "GitGud",
-      "type": "Platform"
-    },
-    "relation": "uses AI API",
-    "object": {
-      "name": "Google Gemini API",
-      "type": "API"
-    }
-  },
-  {
-    "subject": {
-      "name": "Google Gemini API",
-      "type": "API"
-    },
-    "relation": "developed by",
-    "object": {
-      "name": "Google",
-      "type": "Company"
-    }
-  },
-  {
-    "subject": {
-      "name": "GitGud",
-      "type": "Platform"
-    },
-    "relation": "uses data API",
-    "object": {
-      "name": "GitHub REST API",
-      "type": "API"
-    }
-  },
-  {
-    "subject": {
-      "name": "GitHub REST API",
-      "type": "API"
-    },
-    "relation": "accessed via",
-    "object": {
-      "name": "Octokit",
-      "type": "Library"
-    }
-  },
-  {
-    "subject": {
-      "name": "GitGud",
-      "type": "Platform"
-    },
-    "relation": "is described as",
-    "object": {
-      "name": "Tinder for Open Source Contributions",
-      "type": "Concept"
-    }
-  },
-  {
-    "subject": {
-      "name": "Memzee",
-      "type": "Platform"
-    },
-    "relation": "integrates with",
-    "object": {
-      "name": "GitHub",
-      "type": "Platform"
-    }
-  },
-  {
-    "subject": {
-      "name": "Memzee",
-      "type": "Platform"
-    },
-    "relation": "integrates with",
-    "object": {
-      "name": "Gmail",
-      "type": "Platform"
-    }
-  },
-  {
-    "subject": {
-      "name": "Memzee",
-      "type": "Platform"
-    },
-    "relation": "integrates with",
-    "object": {
-      "name": "Google Calendar",
-      "type": "Platform"
-    }
-  },
-  {
-    "subject": {
-      "name": "Memzee",
-      "type": "Platform"
-    },
-    "relation": "integrates with",
-    "object": {
-      "name": "Notion",
-      "type": "Platform"
-    }
-  },
-  {
-    "subject": {
-      "name": "Memzee",
-      "type": "Platform"
-    },
-    "relation": "can remember",
-    "object": {
-      "name": "repositories",
-      "type": "Concept"
-    }
-  },
-  {
-    "subject": {
-      "name": "Memzee",
-      "type": "Platform"
-    },
-    "relation": "can remember",
-    "object": {
-      "name": "emails",
-      "type": "Concept"
-    }
-  },
-  {
-    "subject": {
-      "name": "Memzee",
-      "type": "Platform"
-    },
-    "relation": "can remember",
-    "object": {
-      "name": "meetings",
-      "type": "Concept"
-    }
-  },
-  {
-    "subject": {
-      "name": "Memzee",
-      "type": "Platform"
-    },
-    "relation": "can remember",
-    "object": {
-      "name": "notes",
-      "type": "Concept"
-    }
-  },
-  {
-    "subject": {
-      "name": "GitHub",
-      "type": "Platform"
-    },
-    "relation": "manages",
-    "object": {
-      "name": "repositories",
-      "type": "Concept"
-    }
-  },
-  {
-    "subject": {
-      "name": "Gmail",
-      "type": "Platform"
-    },
-    "relation": "manages",
-    "object": {
-      "name": "emails",
-      "type": "Concept"
-    }
-  },
-  {
-    "subject": {
-      "name": "Google Calendar",
-      "type": "Platform"
-    },
-    "relation": "manages",
-    "object": {
-      "name": "meetings",
-      "type": "Concept"
-    }
-  },
-  {
-    "subject": {
-      "name": "Notion",
-      "type": "Platform"
-    },
-    "relation": "manages",
-    "object": {
-      "name": "notes",
-      "type": "Concept"
+      "name": "speaker",
+      "type": "Other"
     }
   }
 ]

@@ -3,21 +3,25 @@ import os
 from datetime import datetime
 from uuid import uuid4
 
-MEMORY_FILE = "data/memories.json"
-
 
 class MemoryService:
 
-    def __init__(self):
-        os.makedirs("data", exist_ok=True)
+    def _file(self, dataset: str):
+        folder = os.path.join("data", dataset)
+        os.makedirs(folder, exist_ok=True)
 
-        if not os.path.exists(MEMORY_FILE):
-            with open(MEMORY_FILE, "w") as f:
+        file = os.path.join(folder, "memories.json")
+
+        if not os.path.exists(file):
+            with open(file, "w") as f:
                 json.dump([], f)
 
-    def add(self, content: str):
+        return file
 
-        with open(MEMORY_FILE, "r") as f:
+    def add(self, content: str, dataset: str):
+        file = self._file(dataset)
+
+        with open(file, "r") as f:
             memories = json.load(f)
 
         memories.insert(
@@ -29,29 +33,27 @@ class MemoryService:
             },
         )
 
-        with open(MEMORY_FILE, "w") as f:
+        with open(file, "w") as f:
             json.dump(memories, f, indent=2)
 
-    def delete(self, memory_id: str):
+    def delete(self, memory_id: str, dataset: str):
+        file = self._file(dataset)
 
-        with open(MEMORY_FILE, "r") as f:
+        with open(file, "r") as f:
             memories = json.load(f)
 
         memories = [
-            m
-            for m in memories
+            m for m in memories
             if m["id"] != memory_id
         ]
 
-        with open(MEMORY_FILE, "w") as f:
+        with open(file, "w") as f:
             json.dump(memories, f, indent=2)
 
-        return True
+    def load(self, dataset: str):
+        file = self._file(dataset)
 
-
-    def load(self):
-
-        with open(MEMORY_FILE, "r") as f:
+        with open(file, "r") as f:
             return json.load(f)
 
 

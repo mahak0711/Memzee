@@ -3,6 +3,7 @@ from pydantic import BaseModel
 
 class RememberRequest(BaseModel):
     content: str
+    dataset: str
 
 
 class RememberResponse(BaseModel):
@@ -12,6 +13,7 @@ class RememberResponse(BaseModel):
 
 class RecallRequest(BaseModel):
     query: str
+    dataset: str
 
 
 class RecallResponse(BaseModel):
@@ -24,3 +26,8 @@ class RecallResponse(BaseModel):
 
 class GitHubImportRequest(BaseModel):
     url: str
+    dataset: str
+
+class YouTubeImportRequest(BaseModel):
+    url: str
+    dataset: str

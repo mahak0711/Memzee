@@ -19,7 +19,8 @@ class CogneeService:
 
         self.connected = True
 
-    async def remember(self, content: str):
+    async def remember(self, content: str,
+                       dataset: str):
         await self.connect()
 
         try:
@@ -27,16 +28,16 @@ class CogneeService:
             # (graph building + indexing + improve)
             await cognee.remember(
             content,
-            dataset_name=settings.MEMZEE_DATASET,
+            dataset_name=dataset,
             )
-            memory_service.add(content)
+            memory_service.add(content,dataset)
 
             triples = await knowledge_extractor.extract(content)
 
             print("Extracted Triples:")
             print(triples)
 
-            triple_service.save(triples["triples"])
+            triple_service.save(triples["triples"],dataset)
 
             return {
                 "success": True,
@@ -51,13 +52,13 @@ class CogneeService:
                 detail=str(e),
             )
 
-    async def recall(self, query: str):
+    async def recall(self, query: str,dataset:str):
         await self.connect()
 
         try:
             results = await cognee.recall(
                 query_text=query,
-                datasets=[settings.MEMZEE_DATASET],
+                datasets=[dataset],
             )
 
         except Exception as e:
@@ -71,7 +72,7 @@ class CogneeService:
                 "answer": "I couldn't find anything related to that.",
                 "kind": "",
                 "search_type": "",
-                "dataset": settings.MEMZEE_DATASET,
+                "dataset": dataset,
                 "source": "",
             }
 
@@ -98,8 +99,8 @@ class CogneeService:
         await self.connect()
         return []
 
-    async def graph(self):
-        triples = triple_service.load()
+    async def graph(self,dataset:str):
+        triples = triple_service.load(dataset)
 
         nodes = {}
         edges = []
@@ -145,17 +146,26 @@ class CogneeService:
         }
 
 
-    async def forget(self, memory_id: str):
-        try:
-    # delete from Cognee
+    async def forget(
+        self,
+        memory_id: str,
+        dataset: str,
+    ):
+        memory_service.delete(
+            memory_id,
+            dataset,
+        )
 
-    # delete locally
+        triple_service.clear(dataset)
 
-            return {
-                "success": True
-            }
+        memories = memory_service.load(dataset)
 
-        except Exception as e:
-            raise Exception(str(e))
- 
+        for m in memories:
+            await self.remember(
+                m["content"],
+                dataset,
+            )
+
+        return {"success": True}
+    
 cognee_service = CogneeService()

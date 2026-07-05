@@ -1,0 +1,739 @@
+[
+  {
+    "subject": {
+      "name": "Python",
+      "type": "Language"
+    },
+    "relation": "is a",
+    "object": {
+      "name": "programming language",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Python",
+      "type": "Language"
+    },
+    "relation": "has",
+    "object": {
+      "name": "simple syntax",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Python",
+      "type": "Language"
+    },
+    "relation": "has",
+    "object": {
+      "name": "beginner friendly syntax",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Python",
+      "type": "Language"
+    },
+    "relation": "is the",
+    "object": {
+      "name": "most popular programming language",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Python",
+      "type": "Language"
+    },
+    "relation": "is hated by",
+    "object": {
+      "name": "C++ programmers",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Python",
+      "type": "Language"
+    },
+    "relation": "is the language of choice for",
+    "object": {
+      "name": "artificial intelligence",
+      "type": "Technology"
+    }
+  },
+  {
+    "subject": {
+      "name": "Python",
+      "type": "Language"
+    },
+    "relation": "is the language of choice for",
+    "object": {
+      "name": "machine learning",
+      "type": "Technology"
+    }
+  },
+  {
+    "subject": {
+      "name": "Python",
+      "type": "Language"
+    },
+    "relation": "is heavily used in",
+    "object": {
+      "name": "scripting",
+      "type": "Technology"
+    }
+  },
+  {
+    "subject": {
+      "name": "Python",
+      "type": "Language"
+    },
+    "relation": "is heavily used in",
+    "object": {
+      "name": "automation",
+      "type": "Technology"
+    }
+  },
+  {
+    "subject": {
+      "name": "Python",
+      "type": "Language"
+    },
+    "relation": "is heavily used in",
+    "object": {
+      "name": "backend development",
+      "type": "Technology"
+    }
+  },
+  {
+    "subject": {
+      "name": "Python",
+      "type": "Language"
+    },
+    "relation": "has an ecosystem of",
+    "object": {
+      "name": "third-party libraries",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Python",
+      "type": "Language"
+    },
+    "relation": "includes",
+    "object": {
+      "name": "NumPy",
+      "type": "Library"
+    }
+  },
+  {
+    "subject": {
+      "name": "NumPy",
+      "type": "Library"
+    },
+    "relation": "used for",
+    "object": {
+      "name": "numerical computing",
+      "type": "Technology"
+    }
+  },
+  {
+    "subject": {
+      "name": "Python",
+      "type": "Language"
+    },
+    "relation": "includes",
+    "object": {
+      "name": "Pandas",
+      "type": "Library"
+    }
+  },
+  {
+    "subject": {
+      "name": "Pandas",
+      "type": "Library"
+    },
+    "relation": "used for",
+    "object": {
+      "name": "data analysis",
+      "type": "Technology"
+    }
+  },
+  {
+    "subject": {
+      "name": "Python",
+      "type": "Language"
+    },
+    "relation": "includes",
+    "object": {
+      "name": "Scikit-learn",
+      "type": "Library"
+    }
+  },
+  {
+    "subject": {
+      "name": "Scikit-learn",
+      "type": "Library"
+    },
+    "relation": "used for",
+    "object": {
+      "name": "machine learning",
+      "type": "Technology"
+    }
+  },
+  {
+    "subject": {
+      "name": "Python",
+      "type": "Language"
+    },
+    "relation": "includes",
+    "object": {
+      "name": "TensorFlow",
+      "type": "Framework"
+    }
+  },
+  {
+    "subject": {
+      "name": "TensorFlow",
+      "type": "Framework"
+    },
+    "relation": "used for",
+    "object": {
+      "name": "deep learning",
+      "type": "Technology"
+    }
+  },
+  {
+    "subject": {
+      "name": "Python",
+      "type": "Language"
+    },
+    "relation": "includes",
+    "object": {
+      "name": "Django",
+      "type": "Framework"
+    }
+  },
+  {
+    "subject": {
+      "name": "Django",
+      "type": "Framework"
+    },
+    "relation": "used for",
+    "object": {
+      "name": "building web applications",
+      "type": "Technology"
+    }
+  },
+  {
+    "subject": {
+      "name": "Python",
+      "type": "Language"
+    },
+    "relation": "includes",
+    "object": {
+      "name": "Kivy",
+      "type": "Framework"
+    }
+  },
+  {
+    "subject": {
+      "name": "Kivy",
+      "type": "Framework"
+    },
+    "relation": "used for",
+    "object": {
+      "name": "cross-platform desktop and mobile apps",
+      "type": "Technology"
+    }
+  },
+  {
+    "subject": {
+      "name": "Python",
+      "type": "Language"
+    },
+    "relation": "is",
+    "object": {
+      "name": "33 years old",
+      "type": "Other"
+    }
+  },
+  {
+    "subject": {
+      "name": "Python",
+      "type": "Language"
+    },
+    "relation": "created in",
+    "object": {
+      "name": "1991",
+      "type": "Event"
+    }
+  },
+  {
+    "subject": {
+      "name": "Python",
+      "type": "Language"
+    },
+    "relation": "created by",
+    "object": {
+      "name": "Dutch programmer",
+      "type": "Person"
+    }
+  },
+  {
+    "subject": {
+      "name": "Python",
+      "type": "Language"
+    },
+    "relation": "named after",
+    "object": {
+      "name": "Monty Python",
+      "type": "Other"
+    }
+  },
+  {
+    "subject": {
+      "name": "Python",
+      "type": "Language"
+    },
+    "relation": "is an",
+    "object": {
+      "name": "interpreted language",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "interpreted language",
+      "type": "Concept"
+    },
+    "relation": "allows",
+    "object": {
+      "name": "running code without compilation",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Python",
+      "type": "Language"
+    },
+    "relation": "requires an",
+    "object": {
+      "name": "interpreter",
+      "type": "Tool"
+    }
+  },
+  {
+    "subject": {
+      "name": "interpreter",
+      "type": "Tool"
+    },
+    "relation": "is written in",
+    "object": {
+      "name": "C",
+      "type": "Language"
+    }
+  },
+  {
+    "subject": {
+      "name": "interpreter",
+      "type": "Tool"
+    },
+    "relation": "provides",
+    "object": {
+      "name": "performance",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Python",
+      "type": "Language"
+    },
+    "relation": "has",
+    "object": {
+      "name": "hidden gems",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Zen of Python",
+      "type": "Concept"
+    },
+    "relation": "can be imported via",
+    "object": {
+      "name": "`this`",
+      "type": "Other"
+    }
+  },
+  {
+    "subject": {
+      "name": "anti-gravity",
+      "type": "Concept"
+    },
+    "relation": "can be imported via",
+    "object": {
+      "name": "`anti-gravity`",
+      "type": "Other"
+    }
+  },
+  {
+    "subject": {
+      "name": "Python",
+      "type": "Language"
+    },
+    "relation": "allows declaring",
+    "object": {
+      "name": "variables",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "variables",
+      "type": "Concept"
+    },
+    "relation": "have a",
+    "object": {
+      "name": "name",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "variables",
+      "type": "Concept"
+    },
+    "relation": "have a",
+    "object": {
+      "name": "value",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "value",
+      "type": "Concept"
+    },
+    "relation": "can be a",
+    "object": {
+      "name": "string",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "value",
+      "type": "Concept"
+    },
+    "relation": "can be a",
+    "object": {
+      "name": "Boolean",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "value",
+      "type": "Concept"
+    },
+    "relation": "can be a",
+    "object": {
+      "name": "number",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Python",
+      "type": "Language"
+    },
+    "relation": "is a",
+    "object": {
+      "name": "dynamically typed language",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "dynamically typed language",
+      "type": "Concept"
+    },
+    "relation": "determines type of",
+    "object": {
+      "name": "variables at runtime",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Python",
+      "type": "Language"
+    },
+    "relation": "allows adding",
+    "object": {
+      "name": "strings",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Python",
+      "type": "Language"
+    },
+    "relation": "allows multiplying",
+    "object": {
+      "name": "strings",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Python",
+      "type": "Language"
+    },
+    "relation": "allows adding",
+    "object": {
+      "name": "numbers",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Python",
+      "type": "Language"
+    },
+    "relation": "allows multiplying",
+    "object": {
+      "name": "numbers",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Python",
+      "type": "Language"
+    },
+    "relation": "has four types of",
+    "object": {
+      "name": "collections",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "collections",
+      "type": "Concept"
+    },
+    "relation": "include",
+    "object": {
+      "name": "lists",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "collections",
+      "type": "Concept"
+    },
+    "relation": "include",
+    "object": {
+      "name": "tuples",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "collections",
+      "type": "Concept"
+    },
+    "relation": "include",
+    "object": {
+      "name": "sets",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "collections",
+      "type": "Concept"
+    },
+    "relation": "include",
+    "object": {
+      "name": "dictionaries",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Python",
+      "type": "Language"
+    },
+    "relation": "supports",
+    "object": {
+      "name": "negative index",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "negative index",
+      "type": "Concept"
+    },
+    "relation": "used for",
+    "object": {
+      "name": "counting backwards",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Python",
+      "type": "Language"
+    },
+    "relation": "defines functions using",
+    "object": {
+      "name": "`def` keyword",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Python",
+      "type": "Language"
+    },
+    "relation": "declares code blocks using",
+    "object": {
+      "name": "indentation",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Python",
+      "type": "Language"
+    },
+    "relation": "does not use",
+    "object": {
+      "name": "curly braces",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "indentation",
+      "type": "Concept"
+    },
+    "relation": "is a reason for hatred by",
+    "object": {
+      "name": "C++ programmers",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "lack of curly braces",
+      "type": "Concept"
+    },
+    "relation": "is a reason for hatred by",
+    "object": {
+      "name": "C++ programmers",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Python",
+      "type": "Language"
+    },
+    "relation": "supports",
+    "object": {
+      "name": "object-oriented programming",
+      "type": "Technology"
+    }
+  },
+  {
+    "subject": {
+      "name": "Python",
+      "type": "Language"
+    },
+    "relation": "defines classes using",
+    "object": {
+      "name": "`class` keyword",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "classes",
+      "type": "Concept"
+    },
+    "relation": "support",
+    "object": {
+      "name": "inheritance",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Python",
+      "type": "Language"
+    },
+    "relation": "comes with",
+    "object": {
+      "name": "built-in modules",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "built-in modules",
+      "type": "Concept"
+    },
+    "relation": "are used for",
+    "object": {
+      "name": "CSV",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "built-in modules",
+      "type": "Concept"
+    },
+    "relation": "are used for",
+    "object": {
+      "name": "JSON",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "built-in modules",
+      "type": "Concept"
+    },
+    "relation": "are used for",
+    "object": {
+      "name": "emails",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "built-in modules",
+      "type": "Concept"
+    },
+    "relation": "are used for",
+    "object": {
+      "name": "web scraping",
+      "type": "Technology"
+    }
+  }
+]

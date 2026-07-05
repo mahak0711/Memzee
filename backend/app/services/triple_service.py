@@ -1,21 +1,25 @@
 import json
 import os
 
-TRIPLE_FILE = "data/triples.json"
-
 
 class TripleService:
 
-    def __init__(self):
-        os.makedirs("data", exist_ok=True)
+    def _file(self, dataset: str):
+        folder = os.path.join("data", dataset)
+        os.makedirs(folder, exist_ok=True)
 
-        if not os.path.exists(TRIPLE_FILE):
-            with open(TRIPLE_FILE, "w") as f:
+        file = os.path.join(folder, "triples.json")
+
+        if not os.path.exists(file):
+            with open(file, "w") as f:
                 json.dump([], f)
 
-    def save(self, triples):
+        return file
 
-        with open(TRIPLE_FILE, "r") as f:
+    def save(self, triples, dataset: str):
+        file = self._file(dataset)
+
+        with open(file, "r") as f:
             existing = json.load(f)
 
         existing.extend(triples)
@@ -37,13 +41,20 @@ class TripleService:
                 seen.add(key)
                 unique.append(t)
 
-        with open(TRIPLE_FILE, "w") as f:
+        with open(file, "w") as f:
             json.dump(unique, f, indent=2)
 
-    def load(self):
+    def load(self, dataset: str):
+        file = self._file(dataset)
 
-        with open(TRIPLE_FILE, "r") as f:
+        with open(file, "r") as f:
             return json.load(f)
+
+    def clear(self, dataset: str):
+        file = self._file(dataset)
+
+        with open(file, "w") as f:
+            json.dump([], f)
 
 
 triple_service = TripleService()
