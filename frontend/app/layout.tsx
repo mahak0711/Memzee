@@ -26,8 +26,27 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Memzee",
-  description: "The AI Memory Operating System",
+  title: "Memzee | Your Memories. Connected.",
+  description: "Visualize and connect your memories with a knowledge graph.",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+    other: [
+      {
+        rel: "icon",
+        type: "logo/png",
+        sizes: "192x192",
+        url: "/android-chrome-192x192.png",
+      },
+      {
+        rel: "icon",
+        type: "logo/png",
+        sizes: "512x512",
+        url: "/android-chrome-512x512.png",
+      },
+    ],
+  },
 };
 export default function RootLayout({
   children,

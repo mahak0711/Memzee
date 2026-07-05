@@ -6,12 +6,21 @@ import {
   Settings,
   Network,
 } from "lucide-react";
+import Image from "next/image";
 
 export default function Sidebar() {
   return (
     <aside className="relative z-20 flex h-full w-[68px] flex-col items-center border-r border-white/10 bg-[#050505]/95 py-5 shadow-2xl backdrop-blur-xl">
-      <div className="mb-6 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-indigo-500 shadow-lg shadow-cyan-500/20">
-        <Brain size={20} className="text-white" />
+      {/* Container for the logo - Simplified to allow the new logo design to shine */}
+      <div className="mb-6 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-black/50 border border-white/5 shadow-inner">
+        {/* The new, refined, single-file logo asset */}
+        <Image
+          src="/logo.png" // Assumes you've added the new image to your public folder
+          alt="Memzee Network Brain Icon"
+          width={40} // Increased slightly to fill the container nicely
+          height={40}
+          className="rounded-lg object-contain" // object-contain ensures no stretching
+        />
       </div>
 
       <nav className="flex w-full flex-col items-center gap-2">
@@ -24,8 +33,8 @@ export default function Sidebar() {
           <LayoutDashboard size={20} strokeWidth={2} />
         </Link>
 
-
-       
+        {/* Other navigation items can be added here */}
+        
       </nav>
 
       <div className="mt-auto flex w-full flex-col items-center gap-3">

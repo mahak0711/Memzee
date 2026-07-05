@@ -1,25 +1,25 @@
 "use client";
 
 import { motion } from "motion/react";
-
 const steps = [
   {
+    
     number: "01",
-    title: "Capture",
+    title: "Import",
     description:
-      "Drop thoughts naturally. No folders, tags, or manual organization required.",
+      "Capture ideas manually or import knowledge directly from GitHub repositories and YouTube videos.",
   },
   {
     number: "02",
-    title: "Connect",
+    title: "Organize",
     description:
-      "Memzee automatically links people, projects, meetings, and ideas into a living knowledge graph.",
+      "Memzee extracts entities, builds relationships, and transforms scattered information into an interactive knowledge graph.",
   },
   {
     number: "03",
-    title: "Recall",
+    title: "Explore",
     description:
-      "Ask questions naturally and retrieve exactly what you meant instead of searching with keywords.",
+      "Navigate connected memories, inspect relationships, and ask questions naturally to instantly recall what matters.",
   },
 ];
 

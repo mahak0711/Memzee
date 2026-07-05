@@ -107,21 +107,7 @@ export default function HeroInput() {
 
         {/* Left Tools */}
         <div className="flex items-center gap-1">
-          <button
-            type="button"
-            className="flex h-8 w-8 items-center justify-center rounded-lg text-zinc-500 transition-colors hover:bg-white/10 hover:text-zinc-300"
-            title="Attach file"
-          >
-            <Paperclip size={16} />
-          </button>
-
-          <button
-            type="button"
-            className="flex h-8 w-8 items-center justify-center rounded-lg text-zinc-500 transition-colors hover:bg-white/10 hover:text-zinc-300"
-            title="Voice input"
-          >
-            <Mic size={16} />
-          </button>
+         
         </div>
 
         {/* Right Actions */}

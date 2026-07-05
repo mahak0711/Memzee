@@ -1,3 +1,4 @@
+import { getDataset } from "./dataset";
 const API_URL =
   process.env.NEXT_PUBLIC_API_URL ?? "http://127.0.0.1:8000";
 
@@ -9,6 +10,7 @@ export async function rememberMemory(content: string) {
     },
     body: JSON.stringify({
       content,
+      dataset: getDataset()
     }),
   });
 
@@ -27,6 +29,7 @@ export async function recallMemory(query: string) {
     },
     body: JSON.stringify({
       query,
+      dataset: getDataset()
     }),
   });
 
@@ -38,7 +41,7 @@ export async function recallMemory(query: string) {
 }
 
 export async function getMemories() {
-  const response = await fetch(`${API_URL}/api/memory/list`);
+  const response = await fetch(`${API_URL}/api/memory/list?dataset=${getDataset()}`);
 
   if (!response.ok) {
     throw new Error("Failed to fetch memories");
@@ -48,7 +51,7 @@ export async function getMemories() {
 }
 
 export async function getMemoryGraph() {
-  const response = await fetch(`${API_URL}/api/memory/graph`);
+  const response = await fetch(`${API_URL}/api/memory/graph?dataset=${getDataset()}`);
 
   if (!response.ok) {
     throw new Error("Failed to load memory graph");
@@ -63,7 +66,7 @@ export async function importGithub(url: string) {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ url }),
+    body: JSON.stringify({ url ,dataset:getDataset()}),
   });
 
   if (!res.ok) {
@@ -75,7 +78,7 @@ export async function importGithub(url: string) {
 
 export async function forgetMemory(id: string) {
   const res = await fetch(
-    `http://localhost:8000/api/memory/forget/${id}`,
+    `http://localhost:8000/api/memory/forget/${id}?dataset=${getDataset()}`,
     {
       method: "DELETE",
     }
@@ -92,7 +95,7 @@ export async function importYoutube(url: string) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ url }),
+      body: JSON.stringify({ url ,dataset:getDataset()}),
     }
   );
 
