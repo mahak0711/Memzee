@@ -20,7 +20,7 @@ import { toPng } from "html-to-image";
 import { toast } from "sonner";
 import YouTubeImport from "../youtube/YouTubeImport";
 import { useRef } from "react";
-
+import { useMemoryStore } from "@/lib/store/memory";
 const nodeTypes = {
   memory: MemoryNode,
 };
@@ -90,6 +90,9 @@ export default function MemoryGraph() {
   const [showImport, setShowImport] = useState(false);
   const graphRef = useRef<HTMLDivElement>(null);
   const [showYoutubeImport, setShowYoutubeImport] = useState(false);
+  const selectMemory = useMemoryStore(
+  (s) => s.selectMemory
+);
 
   const handleCapture = async () => {
     if (!graphRef.current) return;
@@ -135,6 +138,13 @@ export default function MemoryGraph() {
   };
 
 const focusNode = (node: any) => {
+   selectMemory({
+        id: node.id,
+        title: node.data.title,
+        createdAt: "",
+        tag: node.data.type,
+    });
+
   const connected = new Set<string>();
   connected.add(node.id);
 
@@ -148,6 +158,7 @@ const focusNode = (node: any) => {
 
   requestAnimationFrame(() => {
     fitView({
+      nodes: [...connected].map((id) => ({ id })),
       duration: 700,
       padding: 0.45,
     });
@@ -292,15 +303,20 @@ useEffect(() => {
   const handler = (e: any) => {
     console.log(e.detail);
 
-   const node = nodes.find((n: any) =>
-  e.detail.title
-    ?.toLowerCase()
-    .includes(n.data.title.toLowerCase())
-);
+const node = nodes
+  .filter((n: any) =>
+    e.detail.title
+      ?.toLowerCase()
+      .includes(n.data.title.toLowerCase())
+  )
+  .sort(
+    (a, b) =>
+      b.data.title.length -
+      a.data.title.length
+  )[0];
 
 if (!node) return;
 
-focusNode(node);
 
     console.log("Found node:", node);
 

@@ -3,7 +3,6 @@ import {
   Brain,
   LayoutDashboard,
   Search,
-  Settings,
   Network,
 } from "lucide-react";
 import Image from "next/image";
@@ -38,15 +37,8 @@ export default function Sidebar() {
       </nav>
 
       <div className="mt-auto flex w-full flex-col items-center gap-3">
-        <Link
-          href="/settings"
-          title="Settings"
-          className="group flex h-11 w-11 items-center justify-center rounded-xl text-zinc-500 transition-all hover:bg-white/10 hover:text-zinc-200"
-        >
-          <Settings size={20} strokeWidth={2} />
-        </Link>
+        
 
-        <hr className="w-8 border-white/10" />
 
         <button className="h-8 w-8 overflow-hidden rounded-full border border-white/20 transition-all hover:border-white/40">
           <div className="flex h-full w-full items-center justify-center bg-zinc-800 text-xs font-bold text-zinc-400">
