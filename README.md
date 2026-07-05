@@ -151,9 +151,11 @@ Remove memories while automatically synchronizing the knowledge graph.
   <img width="1915" height="868" alt="image" src="https://github.com/user-attachments/assets/f6c4a58c-71b3-4b0d-8fb0-426d2231452e" />
 
 - GitHub Import
-  
-- YouTube Import
+  <img width="1882" height="863" alt="image" src="https://github.com/user-attachments/assets/0e259ef8-f9d7-4f1a-9f84-f04b423b906b" />
 
+- YouTube Import
+  <img width="1871" height="860" alt="image" src="https://github.com/user-attachments/assets/ae98d696-0f57-4ce0-aae0-b71e7aa45f7f" />
+  
 ---
 
 ## ⚙️ Getting Started
