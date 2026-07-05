@@ -61,7 +61,7 @@ export async function getMemoryGraph() {
 }
 
 export async function importGithub(url: string) {
-  const res = await fetch("http://localhost:8000/api/memory/github", {
+  const res = await fetch(`${API_URL}/api/memory/github`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -78,7 +78,7 @@ export async function importGithub(url: string) {
 
 export async function forgetMemory(id: string) {
   const res = await fetch(
-    `http://localhost:8000/api/memory/forget/${id}?dataset=${getDataset()}`,
+    `${API_URL}/api/memory/forget/${id}?dataset=${getDataset()}`,
     {
       method: "DELETE",
     }
@@ -89,7 +89,7 @@ export async function forgetMemory(id: string) {
 
 export async function importYoutube(url: string) {
   const response = await fetch(
-    "http://localhost:8000/api/memory/youtube",
+      `${API_URL}/api/memory/youtube` ,
     {
       method: "POST",
       headers: {
