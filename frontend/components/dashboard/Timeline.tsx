@@ -6,16 +6,19 @@ import { useMemoryStore } from "@/lib/store/memory";
 import { useEffect, useState } from "react";
 import { getMemories, forgetMemory } from "@/lib/api";
 import { toast } from "sonner";
+import { useWorkspaceStore } from "@/lib/store/workspace";
 
 export default function Timeline() {
   const [memories, setMemories] = useState<any[]>([]);
+  const workspaceId = useWorkspaceStore(
+  (s) => s.currentWorkspace.id
+);
   const selected = useMemoryStore((s) => s.selectedMemory);
   const select = useMemoryStore((s) => s.selectMemory);
   const [deletingId, setDeletingId] = useState<string | null>(null);
   async function loadMemories() {
     try {
-      const data = await getMemories();
-
+const data = (await getMemories()) as any[];
       const formatted = data.map((m: any) => ({
         id: m.id,
 
@@ -35,17 +38,31 @@ export default function Timeline() {
     }
   }
 
-  useEffect(() => {
-    loadMemories();
+ useEffect(() => {
+  select(null);
 
-    const refresh = () => loadMemories();
+  window.dispatchEvent(
+    new Event("clear-selection")
+  );
 
-    window.addEventListener("memory-updated", refresh);
+  loadMemories();
 
-    return () => {
-      window.removeEventListener("memory-updated", refresh);
-    };
-  }, []);
+  const refresh = async () => {
+  await loadMemories();
+};
+
+  window.addEventListener(
+    "memory-updated",
+    refresh
+  );
+
+  return () => {
+    window.removeEventListener(
+      "memory-updated",
+      refresh
+    );
+  };
+}, [workspaceId]);
 
   async function handleDelete(id: string, e: React.MouseEvent) {
     e.stopPropagation();

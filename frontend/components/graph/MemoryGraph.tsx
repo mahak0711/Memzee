@@ -20,6 +20,7 @@ import { toPng } from "html-to-image";
 import { toast } from "sonner";
 import YouTubeImport from "../youtube/YouTubeImport";
 import { useRef } from "react";
+import { useWorkspaceStore } from "@/lib/store/workspace";
 import { useMemoryStore } from "@/lib/store/memory";
 const nodeTypes = {
   memory: MemoryNode,
@@ -81,6 +82,9 @@ function getLayoutedElements(nodes: any[], edges: any[]) {
   return { nodes, edges };
 }
 export default function MemoryGraph() {
+ const workspaceId = useWorkspaceStore(
+  (s) => s.currentWorkspace.id
+);
   const [highlighted, setHighlighted] = useState<Set<string>>(new Set());
   const [selectedNode, setSelectedNode] = useState<any>(null);
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
@@ -139,11 +143,13 @@ export default function MemoryGraph() {
 
 const focusNode = (node: any) => {
    selectMemory({
-        id: node.id,
-        title: node.data.title,
-        createdAt: "",
-        tag: node.data.type,
-    });
+  id: node.id,
+  title: node.data.title,
+  content: node.data.description ?? "",
+  source: "Knowledge Graph",
+  createdAt: "",
+  tag: node.data.type,
+});
 
   const connected = new Set<string>();
   connected.add(node.id);
@@ -169,8 +175,10 @@ const focusNode = (node: any) => {
     try {
       setLoading(true);
 
-      const graph = await getMemoryGraph();
-
+const graph = (await getMemoryGraph()) as {
+  nodes: any[];
+  edges: any[];
+};
       const nodes = graph.nodes.map((node: any) => ({
         id: node.id,
         type: "memory",
@@ -249,20 +257,24 @@ setEdges(layout.edges);
     );
   }, [nodes]);
 
-  useEffect(() => {
-    loadGraph();
-  }, []);
+ useEffect(() => {
+  setSelectedNode(null);
+  setHighlighted(new Set());
 
-  useEffect(() => {
-    const refresh = () => loadGraph();
+  selectMemory(null);
 
-    window.addEventListener("memory-updated", refresh);
-    
+  loadGraph();
+}, [workspaceId]);
 
-    return () => {
-      window.removeEventListener("memory-updated", refresh);
-    };
-  }, []);
+ useEffect(() => {
+  const refresh = () => loadGraph();
+
+  window.addEventListener("memory-updated", refresh);
+
+  return () => {
+    window.removeEventListener("memory-updated", refresh);
+  };
+}, [workspaceId]);
 
   useEffect(() => {
   const clearSelection = () => {

@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 
+
 export default function Sidebar() {
   return (
     <aside className="relative z-20 flex h-full w-[68px] flex-col items-center border-r border-white/10 bg-[#050505]/95 py-5 shadow-2xl backdrop-blur-xl">

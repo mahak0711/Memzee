@@ -3,17 +3,18 @@ import { create } from "zustand";
 export type Memory = {
   id: string;
   title: string;
+  content: string;
+  source?: string;
   createdAt: string;
   tag: string;
 };
-
 type MemoryStore = {
-  // Memory
-  memories: Memory[];
+memories:Memory[];
   selectedMemory: Memory | null;
+  selectMemory: (memory: Memory | null) => void;
+
 
   addMemory: (memory: Memory) => void;
-  selectMemory: (memory: Memory) => void;
 
   // Recall UI
   recallOpen: boolean;

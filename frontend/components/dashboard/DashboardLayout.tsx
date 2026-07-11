@@ -35,7 +35,7 @@ export default function DashboardLayout() {
       <div className="flex flex-1 flex-col">
 
         {/* Topbar */}
-        <div className="border-b border-white/10 bg-[#09090B]/80 backdrop-blur-xl">
+        <div className="z-50 border-b border-white/10 bg-[#09090B]/80 backdrop-blur-xl">
           <Topbar />
         </div>
 
