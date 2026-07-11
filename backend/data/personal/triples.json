@@ -1,0 +1,13 @@
+[
+  {
+    "subject": {
+      "name": "Mahak Kankaria",
+      "type": "Person"
+    },
+    "relation": "learned",
+    "object": {
+      "name": "FastAPI",
+      "type": "Framework"
+    }
+  }
+]
