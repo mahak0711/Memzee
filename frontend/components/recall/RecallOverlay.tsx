@@ -53,7 +53,11 @@ const copyAnswer = async () => {
   setRecallLoading(true);
 
   try {
-    const result = await recallMemory(query);
+   const result = (await recallMemory(query)) as {
+  answer: string;
+  source: string;
+  dataset: string;
+};
 
     console.log("🔥 API Result:", result);
 
