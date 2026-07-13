@@ -9,5 +9,16 @@
       "name": "FastAPI",
       "type": "Framework"
     }
+  },
+  {
+    "subject": {
+      "name": "founder interview",
+      "type": "Concept"
+    },
+    "relation": "is for",
+    "object": {
+      "name": "wise do company",
+      "type": "Company"
+    }
   }
 ]
