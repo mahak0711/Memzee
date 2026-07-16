@@ -2,14 +2,12 @@
 
 import { Search } from "lucide-react";
 import { useMemo, useState, useRef, useEffect } from "react";
+import type { MemoryNode,SearchBarProps } from "@/lib/types/graph";
 
 export default function SearchBar({
   nodes,
   onSelect,
-}: {
-  nodes: any[];
-  onSelect: (node: any) => void;
-}) {
+}: SearchBarProps) {
   const [query, setQuery] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
 

@@ -1,25 +1,28 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Clock3, History, Trash2 } from "lucide-react";
+import { Clock3, Trash2 } from "lucide-react";
 import { useMemoryStore } from "@/lib/store/memory";
 import { useEffect, useState } from "react";
 import { getMemories, forgetMemory } from "@/lib/api";
 import { toast } from "sonner";
 import { useWorkspaceStore } from "@/lib/store/workspace";
+import type { Memory } from "@/lib/types/memory";
+import type {MemoryItem} from "@/lib/types/api";
 
 export default function Timeline() {
-  const [memories, setMemories] = useState<any[]>([]);
+const [memories, setMemories] = useState<Memory[]>([]);
   const workspaceId = useWorkspaceStore(
   (s) => s.currentWorkspace.id
 );
+
   const selected = useMemoryStore((s) => s.selectedMemory);
   const select = useMemoryStore((s) => s.selectMemory);
   const [deletingId, setDeletingId] = useState<string | null>(null);
   async function loadMemories() {
     try {
-const data = (await getMemories()) as any[];
-      const formatted = data.map((m: any) => ({
+      const data = await getMemories();
+      const formatted = data.map((m: MemoryItem) => ({
         id: m.id,
 
         title: "Memory",

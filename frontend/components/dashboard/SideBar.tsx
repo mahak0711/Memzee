@@ -1,9 +1,6 @@
 import Link from "next/link";
 import {
-  Brain,
   LayoutDashboard,
-  Search,
-  Network,
 } from "lucide-react";
 import Image from "next/image";
 

@@ -7,8 +7,6 @@ import { rememberMemory } from "@/lib/api";
 import { toast } from "sonner";
 import {
   ArrowUp,
-  Paperclip,
-  Mic,
   Command,
   CornerDownLeft
 } from "lucide-react";

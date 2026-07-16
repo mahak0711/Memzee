@@ -3,8 +3,14 @@
 import { Handle, Position } from "reactflow";
 import { Brain } from "lucide-react";
 
-export default function MemoryNode({ data, selected }: any) {
-  return (
+import type {
+  MemoryNodeProps,
+} from "@/lib/types/graph";
+
+export default function MemoryNode({
+  data,
+  selected,
+}: MemoryNodeProps)  {  return (
     <div
       className={`
 min-w-[250px]

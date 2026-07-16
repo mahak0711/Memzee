@@ -9,16 +9,18 @@ import {
   Camera,
   Play,
 } from "lucide-react";
-
+import {MemoryNode} from "@/lib/types/graph"
 import SearchBar from "./SearchBar";
 import { useUIStore } from "@/lib/store/ui";
 
 type Props = {
   nodeCount: number;
   edgeCount: number;
-  nodes: any[];
+  nodes: MemoryNode[];
+
   onImportYoutube: () => void;
-  onSelect: (node: any) => void;
+  onSelect: (node: MemoryNode) => void;
+
   onReset: () => void;
   onFit: () => void;
   onImport: () => void;

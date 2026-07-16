@@ -1,5 +1,11 @@
 import { useWorkspaceStore } from "@/lib/store/workspace";
-
+import type {
+  RememberResponse,
+  RecallResponse,
+  ImportResponse,
+  MemoryItem,
+  MemoryGraphResponse,
+} from "@/lib/types/api";
 const API_URL =
   process.env.NEXT_PUBLIC_API_URL ?? "http://127.0.0.1:8000";
 
@@ -46,7 +52,10 @@ export async function rememberMemory(content: string) {
     }),
   });
 
-  return parseResponse(response, "Failed to store memory");
+  return parseResponse<RememberResponse>(
+  response,
+  "Failed to store memory"
+);
 }
 
 export async function recallMemory(query: string) {
@@ -63,7 +72,10 @@ export async function recallMemory(query: string) {
     }),
   });
 
-  return parseResponse(response, "Recall failed");
+  return parseResponse<RecallResponse>(
+  response,
+  "Recall failed"
+);
 }
 
 export async function getMemories() {
@@ -76,8 +88,10 @@ export async function getMemories() {
     }
   );
 
-  return parseResponse(response, "Failed to fetch memories");
-}
+return parseResponse<MemoryItem[]>(
+  response,
+  "Failed to fetch memories"
+);}
 
 export async function getMemoryGraph() {
   const dataset = getCurrentDataset();
@@ -89,8 +103,10 @@ export async function getMemoryGraph() {
     }
   );
 
-  return parseResponse(response, "Failed to load memory graph");
-}
+return parseResponse<MemoryGraphResponse>(
+  response,
+  "Failed to load memory graph"
+);}
 
 export async function importGithub(url: string) {
   const dataset = getCurrentDataset();
@@ -106,8 +122,10 @@ export async function importGithub(url: string) {
     }),
   });
 
-  return parseResponse(response, "Failed to import repository");
-}
+return parseResponse<ImportResponse>(
+  response,
+  "Failed to import repository"
+);}
 
 export async function forgetMemory(id: string) {
   const dataset = getCurrentDataset();
@@ -121,8 +139,10 @@ export async function forgetMemory(id: string) {
     }
   );
 
-  return parseResponse(response, "Failed to forget memory");
-}
+return parseResponse<ImportResponse>(
+  response,
+  "Failed to forget memory"
+);}
 
 export async function importYoutube(url: string) {
   const dataset = getCurrentDataset();
@@ -138,5 +158,7 @@ export async function importYoutube(url: string) {
     }),
   });
 
-  return parseResponse(response, "Failed to import YouTube video");
-}
+return parseResponse<ImportResponse>(
+  response,
+  "Failed to import YouTube video"
+);}

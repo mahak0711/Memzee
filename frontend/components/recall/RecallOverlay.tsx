@@ -3,17 +3,12 @@
 import { useState } from "react";
 import {
   CommandDialog,
-  CommandInput,
-  CommandList,
-  CommandEmpty,
-  CommandGroup,
-  CommandItem,
+  CommandInput
 } from "@/components/ui/command";
 import ReactMarkdown from "react-markdown";
 import {
   Brain,
   Loader2,
-  Database,
   Copy,
   Check,
   Sparkles,

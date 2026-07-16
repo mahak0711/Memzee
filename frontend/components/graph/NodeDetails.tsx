@@ -2,17 +2,24 @@
 
 import { X } from "lucide-react";
 
+import type {
+  MemoryNode,
+  MemoryEdge,
+} from "@/lib/types/graph";
+
+type NodeDetailsProps = {
+  node: MemoryNode | null;
+  nodes: MemoryNode[];
+  edges: MemoryEdge[];
+  onClose: () => void;
+};
+
 export default function NodeDetails({
   node,
   nodes,
   edges,
   onClose,
-}: {
-  node: any;
-  nodes: any[];
-  edges: any[];
-  onClose: () => void;
-}) {
+}: NodeDetailsProps) {
   if (!node) return null;
 const relatedEdges = edges.filter(
   (edge) =>
