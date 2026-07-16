@@ -20,5 +20,434 @@
       "name": "wise do company",
       "type": "Company"
     }
+  },
+  {
+    "subject": {
+      "name": "Personal branding",
+      "type": "Concept"
+    },
+    "relation": "is a",
+    "object": {
+      "name": "intentional and strategic process",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "intentional and strategic process",
+      "type": "Concept"
+    },
+    "relation": "shapes perception of",
+    "object": {
+      "name": "professional value",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "intentional and strategic process",
+      "type": "Concept"
+    },
+    "relation": "shapes perception of",
+    "object": {
+      "name": "skills",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "intentional and strategic process",
+      "type": "Concept"
+    },
+    "relation": "shapes perception of",
+    "object": {
+      "name": "personality",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Personal branding",
+      "type": "Concept"
+    },
+    "relation": "builds",
+    "object": {
+      "name": "authentic reputation",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "authentic reputation",
+      "type": "Concept"
+    },
+    "relation": "attracts",
+    "object": {
+      "name": "opportunities",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "authentic reputation",
+      "type": "Concept"
+    },
+    "relation": "attracts",
+    "object": {
+      "name": "clients",
+      "type": "Other"
+    }
+  },
+  {
+    "subject": {
+      "name": "authentic reputation",
+      "type": "Concept"
+    },
+    "relation": "attracts",
+    "object": {
+      "name": "career moves",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Personal branding",
+      "type": "Concept"
+    },
+    "relation": "involves step",
+    "object": {
+      "name": "Defining Value and Audience",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Defining Value and Audience",
+      "type": "Concept"
+    },
+    "relation": "includes",
+    "object": {
+      "name": "identifying unique skills",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Defining Value and Audience",
+      "type": "Concept"
+    },
+    "relation": "includes",
+    "object": {
+      "name": "identifying core values",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Defining Value and Audience",
+      "type": "Concept"
+    },
+    "relation": "includes",
+    "object": {
+      "name": "identifying specific problems",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Defining Value and Audience",
+      "type": "Concept"
+    },
+    "relation": "aims to",
+    "object": {
+      "name": "narrowing down target audience",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "narrowing down target audience",
+      "type": "Concept"
+    },
+    "relation": "ensures reach of",
+    "object": {
+      "name": "message",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Personal branding",
+      "type": "Concept"
+    },
+    "relation": "involves step",
+    "object": {
+      "name": "Auditing Online Presence",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Auditing Online Presence",
+      "type": "Concept"
+    },
+    "relation": "involves",
+    "object": {
+      "name": "searching name on Google",
+      "type": "Platform"
+    }
+  },
+  {
+    "subject": {
+      "name": "Auditing Online Presence",
+      "type": "Concept"
+    },
+    "relation": "involves",
+    "object": {
+      "name": "optimizing public-facing profiles",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "public-facing profiles",
+      "type": "Concept"
+    },
+    "relation": "includes",
+    "object": {
+      "name": "LinkedIn Profile",
+      "type": "Platform"
+    }
+  },
+  {
+    "subject": {
+      "name": "Auditing Online Presence",
+      "type": "Concept"
+    },
+    "relation": "ensures consistency of",
+    "object": {
+      "name": "visual style",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "visual style",
+      "type": "Concept"
+    },
+    "relation": "comprises",
+    "object": {
+      "name": "colors",
+      "type": "Other"
+    }
+  },
+  {
+    "subject": {
+      "name": "visual style",
+      "type": "Concept"
+    },
+    "relation": "comprises",
+    "object": {
+      "name": "logos",
+      "type": "Other"
+    }
+  },
+  {
+    "subject": {
+      "name": "visual style",
+      "type": "Concept"
+    },
+    "relation": "comprises",
+    "object": {
+      "name": "fonts",
+      "type": "Other"
+    }
+  },
+  {
+    "subject": {
+      "name": "Auditing Online Presence",
+      "type": "Concept"
+    },
+    "relation": "ensures consistency of",
+    "object": {
+      "name": "tone of voice",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "visual style",
+      "type": "Concept"
+    },
+    "relation": "is consistent across",
+    "object": {
+      "name": "platforms",
+      "type": "Platform"
+    }
+  },
+  {
+    "subject": {
+      "name": "tone of voice",
+      "type": "Concept"
+    },
+    "relation": "is consistent across",
+    "object": {
+      "name": "platforms",
+      "type": "Platform"
+    }
+  },
+  {
+    "subject": {
+      "name": "Personal branding",
+      "type": "Concept"
+    },
+    "relation": "involves step",
+    "object": {
+      "name": "Establishing an Owned Platform",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Establishing an Owned Platform",
+      "type": "Concept"
+    },
+    "relation": "includes",
+    "object": {
+      "name": "personal website",
+      "type": "Platform"
+    }
+  },
+  {
+    "subject": {
+      "name": "Establishing an Owned Platform",
+      "type": "Concept"
+    },
+    "relation": "includes",
+    "object": {
+      "name": "email newsletter",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "personal website",
+      "type": "Platform"
+    },
+    "relation": "secures",
+    "object": {
+      "name": "direct connection",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "email newsletter",
+      "type": "Concept"
+    },
+    "relation": "secures",
+    "object": {
+      "name": "direct connection",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "direct connection",
+      "type": "Concept"
+    },
+    "relation": "with",
+    "object": {
+      "name": "audience",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "social media",
+      "type": "Platform"
+    },
+    "relation": "has",
+    "object": {
+      "name": "algorithms",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Personal branding",
+      "type": "Concept"
+    },
+    "relation": "involves step",
+    "object": {
+      "name": "Creating Consistent Content",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Creating Consistent Content",
+      "type": "Concept"
+    },
+    "relation": "involves",
+    "object": {
+      "name": "sharing expertise",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Creating Consistent Content",
+      "type": "Concept"
+    },
+    "relation": "involves",
+    "object": {
+      "name": "sharing case studies",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Creating Consistent Content",
+      "type": "Concept"
+    },
+    "relation": "involves",
+    "object": {
+      "name": "sharing journey",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Creating Consistent Content",
+      "type": "Concept"
+    },
+    "relation": "focuses on",
+    "object": {
+      "name": "publishing insights",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "insights",
+      "type": "Concept"
+    },
+    "relation": "solve",
+    "object": {
+      "name": "audience's pain points",
+      "type": "Concept"
+    }
+  },
+  {
+    "subject": {
+      "name": "Creating Consistent Content",
+      "type": "Concept"
+    },
+    "relation": "avoids",
+    "object": {
+      "name": "broadcasting achievements",
+      "type": "Concept"
+    }
   }
 ]
